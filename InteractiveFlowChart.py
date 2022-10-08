@@ -243,18 +243,28 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Criminal Justice - Bachelor of Science Suggested Academic Plan"))
         self.buttonArray = [self.pushButton, self.pushButton_2, self.pushButton_3, self.pushButton_4, self.pushButton_5,
                             self.pushButton_6, self.pushButton_7,
-                            self.pushButton_8, self.pushButton_9, self.pushButton_10]
+                            self.pushButton_8, self.pushButton_9, self.pushButton_10, self.pushButton_11, self.pushButton_12, self.pushButton_13,
+                            self.pushButton_14, self.pushButton_15, self.pushButton_16, self.pushButton_17, self.pushButton_18, self.pushButton_19, self.pushButton_20,
+                            self.pushButton_21, self.pushButton_22, self.pushButton_23, self.pushButton_24, self.pushButton_25, self.pushButton_26, self.pushButton_27,
+                            self.pushButton_28, self.pushButton_29, self.pushButton_30, self.pushButton_31, self.pushButton_32, self.pushButton_33, self.pushButton_34,
+                            self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38, self.pushButton_39, self.pushButton_40]
         #self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
 
         d = 0
+        linecounter = 0
         for i in data:
-            line = i[0] + " " + i[1] + " " + i[2] + " credits"
+            """if linecounter == 40:
+                break"""
+            line = i[0] + " " + i[1] + "\n" + i[2] + " credits"
+            linecounter += 1
             print(line)
-            for j in self.buttonArray:
-                if d == 8:
-                    break
-                self.buttonArray[d].setText(_translate("MainWindow", line))
-                d = d + 1
+            self.buttonArray[d].setText(_translate("MainWindow", line))
+            d = d + 1
+            """for j in self.buttonArray:
+                if d == 19:
+                    break"""
+
+
 
 
         #data.close()
@@ -388,7 +398,7 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    ui.clickme()
+    #ui.clickme()
     data = ui.processFile("CourseInfo.txt")
     #ui.populate(data, ui)
     sys.exit(app.exec_())
