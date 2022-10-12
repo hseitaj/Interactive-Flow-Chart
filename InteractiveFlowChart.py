@@ -13,32 +13,41 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1183, 751)
-        # Array of buttons to iterate through --------------------------------------------------------------------------
-        #self.buttonArray = []
 
+        self.buttonArray = []
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(1196, 754)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(160, 20, 751, 31))
+        self.label.setGeometry(QtCore.QRect(210, 20, 771, 31))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(16)
+        font.setPointSize(18)
         self.label.setFont(font)
+        self.label.setMouseTracking(True)
+        self.label.setStyleSheet("color: blue;")
+        self.label.setMidLineWidth(1)
         self.label.setObjectName("label")
-
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 140, 111, 81))
+        self.pushButton.setGeometry(QtCore.QRect(20, 140, 121, 91))
+        self.pushButton.setStyleSheet("background-color: blue;\n"
+                                      "color: white;\n"
+                                      "")
+        self.pushButton.setCheckable(False)
+        self.pushButton.setAutoDefault(True)
         self.pushButton.setObjectName("pushButton")
         self.splitter = QtWidgets.QSplitter(self.centralwidget)
-        self.splitter.setGeometry(QtCore.QRect(10, 60, 1081, 71))
+        self.splitter.setGeometry(QtCore.QRect(10, 60, 1151, 71))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.splitter.setFont(font)
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.label_2 = QtWidgets.QLabel(self.splitter)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(14)
+        font.setPointSize(16)
         self.label_2.setFont(font)
         self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_2.setAutoFillBackground(False)
@@ -51,7 +60,7 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.splitter)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(14)
+        font.setPointSize(16)
         self.label_3.setFont(font)
         self.label_3.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_3.setAutoFillBackground(False)
@@ -64,7 +73,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.splitter)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(14)
+        font.setPointSize(16)
         self.label_4.setFont(font)
         self.label_4.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_4.setAutoFillBackground(False)
@@ -77,7 +86,7 @@ class Ui_MainWindow(object):
         self.label_5 = QtWidgets.QLabel(self.splitter)
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(14)
+        font.setPointSize(16)
         self.label_5.setFont(font)
         self.label_5.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_5.setAutoFillBackground(False)
@@ -89,133 +98,264 @@ class Ui_MainWindow(object):
         self.label_5.setIndent(-2)
         self.label_5.setObjectName("label_5")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(140, 140, 111, 81))
+        self.pushButton_2.setGeometry(QtCore.QRect(20, 240, 121, 91))
+        self.pushButton_2.setStyleSheet("color: green;\n"
+                                        "")
+        self.pushButton_2.setCheckable(False)
+        self.pushButton_2.setAutoDefault(True)
         self.pushButton_2.setObjectName("pushButton_2")
-        ##########################################################
-
-        #########################################################
         self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(140, 230, 111, 81))
+        self.pushButton_3.setGeometry(QtCore.QRect(20, 340, 121, 91))
+        self.pushButton_3.setStyleSheet("color: black;\n"
+                                        "")
+        self.pushButton_3.setCheckable(False)
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(20, 230, 111, 81))
+        self.pushButton_4.setGeometry(QtCore.QRect(20, 440, 121, 91))
+        self.pushButton_4.setStyleSheet("color: black;\n"
+                                        "")
+        self.pushButton_4.setCheckable(False)
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_5.setGeometry(QtCore.QRect(140, 320, 111, 81))
+        self.pushButton_5.setGeometry(QtCore.QRect(20, 540, 121, 91))
+        self.pushButton_5.setStyleSheet("color: black;\n"
+                                        "")
+        self.pushButton_5.setCheckable(False)
         self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_6.setGeometry(QtCore.QRect(20, 320, 111, 81))
+        self.pushButton_6.setGeometry(QtCore.QRect(150, 340, 121, 91))
+        self.pushButton_6.setStyleSheet("color: black;\n"
+                                        "")
+        self.pushButton_6.setCheckable(False)
         self.pushButton_6.setObjectName("pushButton_6")
         self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_7.setGeometry(QtCore.QRect(140, 410, 111, 81))
+        self.pushButton_7.setGeometry(QtCore.QRect(150, 440, 121, 91))
+        self.pushButton_7.setStyleSheet("color: black;\n"
+                                        "")
+        self.pushButton_7.setCheckable(False)
         self.pushButton_7.setObjectName("pushButton_7")
         self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_8.setGeometry(QtCore.QRect(20, 410, 111, 81))
+        self.pushButton_8.setGeometry(QtCore.QRect(150, 140, 121, 91))
+        self.pushButton_8.setStyleSheet("background-color: blue;\n"
+                                        "color: white;\n"
+                                        "")
+        self.pushButton_8.setCheckable(False)
+        self.pushButton_8.setAutoDefault(True)
         self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_9.setGeometry(QtCore.QRect(140, 500, 111, 81))
+        self.pushButton_9.setGeometry(QtCore.QRect(150, 240, 121, 91))
+        self.pushButton_9.setStyleSheet("color: green;\n"
+                                        "")
+        self.pushButton_9.setCheckable(False)
+        self.pushButton_9.setAutoDefault(True)
         self.pushButton_9.setObjectName("pushButton_9")
         self.pushButton_10 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_10.setGeometry(QtCore.QRect(20, 500, 111, 81))
+        self.pushButton_10.setGeometry(QtCore.QRect(150, 540, 121, 91))
+        self.pushButton_10.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_10.setCheckable(False)
         self.pushButton_10.setObjectName("pushButton_10")
         self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_11.setGeometry(QtCore.QRect(420, 140, 111, 81))
+        self.pushButton_11.setGeometry(QtCore.QRect(450, 140, 121, 91))
+        self.pushButton_11.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_11.setCheckable(False)
+        self.pushButton_11.setAutoDefault(True)
         self.pushButton_11.setObjectName("pushButton_11")
         self.pushButton_12 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_12.setGeometry(QtCore.QRect(420, 500, 111, 81))
+        self.pushButton_12.setGeometry(QtCore.QRect(450, 540, 121, 91))
+        self.pushButton_12.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_12.setCheckable(False)
         self.pushButton_12.setObjectName("pushButton_12")
         self.pushButton_13 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_13.setGeometry(QtCore.QRect(420, 320, 111, 81))
+        self.pushButton_13.setGeometry(QtCore.QRect(320, 340, 121, 91))
+        self.pushButton_13.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_13.setCheckable(False)
         self.pushButton_13.setObjectName("pushButton_13")
         self.pushButton_14 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_14.setGeometry(QtCore.QRect(300, 410, 111, 81))
+        self.pushButton_14.setGeometry(QtCore.QRect(450, 340, 121, 91))
+        self.pushButton_14.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_14.setCheckable(False)
         self.pushButton_14.setObjectName("pushButton_14")
         self.pushButton_15 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_15.setGeometry(QtCore.QRect(420, 410, 111, 81))
+        self.pushButton_15.setGeometry(QtCore.QRect(450, 240, 121, 91))
+        self.pushButton_15.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_15.setCheckable(False)
+        self.pushButton_15.setAutoDefault(True)
         self.pushButton_15.setObjectName("pushButton_15")
         self.pushButton_16 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_16.setGeometry(QtCore.QRect(300, 140, 111, 81))
+        self.pushButton_16.setGeometry(QtCore.QRect(320, 440, 121, 91))
+        self.pushButton_16.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_16.setCheckable(False)
         self.pushButton_16.setObjectName("pushButton_16")
         self.pushButton_17 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_17.setGeometry(QtCore.QRect(300, 230, 111, 81))
+        self.pushButton_17.setGeometry(QtCore.QRect(320, 140, 121, 91))
+        self.pushButton_17.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_17.setCheckable(False)
+        self.pushButton_17.setAutoDefault(True)
         self.pushButton_17.setObjectName("pushButton_17")
         self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_18.setGeometry(QtCore.QRect(300, 500, 111, 81))
+        self.pushButton_18.setGeometry(QtCore.QRect(450, 440, 121, 91))
+        self.pushButton_18.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_18.setCheckable(False)
         self.pushButton_18.setObjectName("pushButton_18")
         self.pushButton_19 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_19.setGeometry(QtCore.QRect(420, 230, 111, 81))
+        self.pushButton_19.setGeometry(QtCore.QRect(320, 240, 121, 91))
+        self.pushButton_19.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_19.setCheckable(False)
+        self.pushButton_19.setAutoDefault(True)
         self.pushButton_19.setObjectName("pushButton_19")
         self.pushButton_20 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_20.setGeometry(QtCore.QRect(300, 320, 111, 81))
+        self.pushButton_20.setGeometry(QtCore.QRect(320, 540, 121, 91))
+        self.pushButton_20.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_20.setCheckable(False)
         self.pushButton_20.setObjectName("pushButton_20")
         self.pushButton_21 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_21.setGeometry(QtCore.QRect(690, 140, 111, 81))
+        self.pushButton_21.setGeometry(QtCore.QRect(740, 140, 121, 91))
+        self.pushButton_21.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_21.setCheckable(False)
+        self.pushButton_21.setAutoDefault(True)
         self.pushButton_21.setObjectName("pushButton_21")
         self.pushButton_22 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_22.setGeometry(QtCore.QRect(690, 500, 111, 81))
+        self.pushButton_22.setGeometry(QtCore.QRect(740, 540, 121, 91))
+        self.pushButton_22.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_22.setCheckable(False)
         self.pushButton_22.setObjectName("pushButton_22")
         self.pushButton_23 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_23.setGeometry(QtCore.QRect(690, 320, 111, 81))
+        self.pushButton_23.setGeometry(QtCore.QRect(610, 340, 121, 91))
+        self.pushButton_23.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_23.setCheckable(False)
         self.pushButton_23.setObjectName("pushButton_23")
         self.pushButton_24 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_24.setGeometry(QtCore.QRect(570, 410, 111, 81))
+        self.pushButton_24.setGeometry(QtCore.QRect(740, 340, 121, 91))
+        self.pushButton_24.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_24.setCheckable(False)
         self.pushButton_24.setObjectName("pushButton_24")
-
         self.pushButton_25 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_25.setGeometry(QtCore.QRect(690, 410, 111, 81))
+        self.pushButton_25.setGeometry(QtCore.QRect(740, 240, 121, 91))
+        self.pushButton_25.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_25.setCheckable(False)
+        self.pushButton_25.setAutoDefault(True)
         self.pushButton_25.setObjectName("pushButton_25")
         self.pushButton_26 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_26.setGeometry(QtCore.QRect(570, 140, 111, 81))
+        self.pushButton_26.setGeometry(QtCore.QRect(610, 440, 121, 91))
+        self.pushButton_26.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_26.setCheckable(False)
         self.pushButton_26.setObjectName("pushButton_26")
         self.pushButton_27 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_27.setGeometry(QtCore.QRect(570, 230, 111, 81))
+        self.pushButton_27.setGeometry(QtCore.QRect(610, 140, 121, 91))
+        self.pushButton_27.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_27.setCheckable(False)
+        self.pushButton_27.setAutoDefault(True)
         self.pushButton_27.setObjectName("pushButton_27")
         self.pushButton_28 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_28.setGeometry(QtCore.QRect(570, 500, 111, 81))
+        self.pushButton_28.setGeometry(QtCore.QRect(740, 440, 121, 91))
+        self.pushButton_28.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_28.setCheckable(False)
         self.pushButton_28.setObjectName("pushButton_28")
         self.pushButton_29 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_29.setGeometry(QtCore.QRect(690, 230, 111, 81))
+        self.pushButton_29.setGeometry(QtCore.QRect(610, 240, 121, 91))
+        self.pushButton_29.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_29.setCheckable(False)
+        self.pushButton_29.setAutoDefault(True)
         self.pushButton_29.setObjectName("pushButton_29")
         self.pushButton_30 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_30.setGeometry(QtCore.QRect(570, 320, 111, 81))
+        self.pushButton_30.setGeometry(QtCore.QRect(610, 540, 121, 91))
+        self.pushButton_30.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_30.setCheckable(False)
         self.pushButton_30.setObjectName("pushButton_30")
         self.pushButton_31 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_31.setGeometry(QtCore.QRect(970, 140, 111, 81))
+        self.pushButton_31.setGeometry(QtCore.QRect(1030, 140, 121, 91))
+        self.pushButton_31.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_31.setCheckable(False)
+        self.pushButton_31.setAutoDefault(True)
         self.pushButton_31.setObjectName("pushButton_31")
         self.pushButton_32 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_32.setGeometry(QtCore.QRect(970, 500, 111, 81))
+        self.pushButton_32.setGeometry(QtCore.QRect(1030, 540, 121, 91))
+        self.pushButton_32.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_32.setCheckable(False)
         self.pushButton_32.setObjectName("pushButton_32")
         self.pushButton_33 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_33.setGeometry(QtCore.QRect(970, 320, 111, 81))
+        self.pushButton_33.setGeometry(QtCore.QRect(900, 340, 121, 91))
+        self.pushButton_33.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_33.setCheckable(False)
         self.pushButton_33.setObjectName("pushButton_33")
         self.pushButton_34 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_34.setGeometry(QtCore.QRect(850, 410, 111, 81))
+        self.pushButton_34.setGeometry(QtCore.QRect(1030, 340, 121, 91))
+        self.pushButton_34.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_34.setCheckable(False)
         self.pushButton_34.setObjectName("pushButton_34")
         self.pushButton_35 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_35.setGeometry(QtCore.QRect(970, 410, 111, 81))
+        self.pushButton_35.setGeometry(QtCore.QRect(1030, 240, 121, 91))
+        self.pushButton_35.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_35.setCheckable(False)
+        self.pushButton_35.setAutoDefault(True)
         self.pushButton_35.setObjectName("pushButton_35")
         self.pushButton_36 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_36.setGeometry(QtCore.QRect(850, 140, 111, 81))
+        self.pushButton_36.setGeometry(QtCore.QRect(900, 440, 121, 91))
+        self.pushButton_36.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_36.setCheckable(False)
         self.pushButton_36.setObjectName("pushButton_36")
         self.pushButton_37 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_37.setGeometry(QtCore.QRect(850, 230, 111, 81))
+        self.pushButton_37.setGeometry(QtCore.QRect(900, 140, 121, 91))
+        self.pushButton_37.setStyleSheet("background-color: blue;\n"
+                                         "color: white;\n"
+                                         "")
+        self.pushButton_37.setCheckable(False)
+        self.pushButton_37.setAutoDefault(True)
         self.pushButton_37.setObjectName("pushButton_37")
         self.pushButton_38 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_38.setGeometry(QtCore.QRect(850, 500, 111, 81))
+        self.pushButton_38.setGeometry(QtCore.QRect(1030, 440, 121, 91))
+        self.pushButton_38.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_38.setCheckable(False)
         self.pushButton_38.setObjectName("pushButton_38")
         self.pushButton_39 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_39.setGeometry(QtCore.QRect(970, 230, 111, 81))
+        self.pushButton_39.setGeometry(QtCore.QRect(900, 240, 121, 91))
+        self.pushButton_39.setStyleSheet("color: green;\n"
+                                         "")
+        self.pushButton_39.setCheckable(False)
+        self.pushButton_39.setAutoDefault(True)
         self.pushButton_39.setObjectName("pushButton_39")
         self.pushButton_40 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_40.setGeometry(QtCore.QRect(850, 320, 111, 81))
+        self.pushButton_40.setGeometry(QtCore.QRect(900, 540, 121, 91))
+        self.pushButton_40.setStyleSheet("color: black;\n"
+                                         "")
+        self.pushButton_40.setCheckable(False)
         self.pushButton_40.setObjectName("pushButton_40")
-
-        #self.buttonArray = [self.pushButton, self.pushButton_2, self.pushButton_3, self.pushButton_4, self.pushButton_5, self.pushButton_6, self.pushButton_7,
-                            #self.pushButton_8, self.pushButton_9, self.pushButton_10]
-
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1183, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1196, 26))
         self.menubar.setObjectName("menubar")
         self.menuTBd = QtWidgets.QMenu(self.menubar)
         self.menuTBd.setObjectName("menuTBd")
@@ -229,33 +369,37 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        # text_edit = QPlainTextEdit()
-        array1 = []
-        data = Ui_MainWindow.processFile(self, "CourseInfo.txt") #open('CourseInfo.txt', 'r')
-        self.buttonArray = []
-        #text = open('CourseInfo.txt', 'r')
-        #line1 = text.readline()
-        #line2 = text.readline()
-        #text.close()
-
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "Criminal Justice - Bachelor of Science Suggested Academic Plan"))
+        self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
+        self.label_2.setText(_translate("MainWindow", "Year 1"))
+        self.label_3.setText(_translate("MainWindow", "Year 2"))
+        self.label_4.setText(_translate("MainWindow", "Year 3"))
+        self.label_5.setText(_translate("MainWindow", "Year 4"))
+
         self.buttonArray = [self.pushButton, self.pushButton_2, self.pushButton_3, self.pushButton_4, self.pushButton_5,
                             self.pushButton_6, self.pushButton_7,
-                            self.pushButton_8, self.pushButton_9, self.pushButton_10, self.pushButton_11, self.pushButton_12, self.pushButton_13,
-                            self.pushButton_14, self.pushButton_15, self.pushButton_16, self.pushButton_17, self.pushButton_18, self.pushButton_19, self.pushButton_20,
-                            self.pushButton_21, self.pushButton_22, self.pushButton_23, self.pushButton_24, self.pushButton_25, self.pushButton_26, self.pushButton_27,
-                            self.pushButton_28, self.pushButton_29, self.pushButton_30, self.pushButton_31, self.pushButton_32, self.pushButton_33, self.pushButton_34,
-                            self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38, self.pushButton_39, self.pushButton_40]
-        #self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
+                            self.pushButton_8, self.pushButton_9, self.pushButton_10, self.pushButton_11,
+                            self.pushButton_12, self.pushButton_13,
+                            self.pushButton_14, self.pushButton_15, self.pushButton_16, self.pushButton_17,
+                            self.pushButton_18, self.pushButton_19, self.pushButton_20,
+                            self.pushButton_21, self.pushButton_22, self.pushButton_23, self.pushButton_24,
+                            self.pushButton_25, self.pushButton_26, self.pushButton_27,
+                            self.pushButton_28, self.pushButton_29, self.pushButton_30, self.pushButton_31,
+                            self.pushButton_32, self.pushButton_33, self.pushButton_34,
+                            self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38,
+                            self.pushButton_39, self.pushButton_40]
+        # self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
 
+        data = Ui_MainWindow.processFile(self, "CourseInfo.txt")  # open('CourseInfo.txt', 'r')
         d = 0
+
         linecounter = 0
         for i in data:
             """if linecounter == 40:
                 break"""
-            line = i[0] + " " + i[1] + "\n" + i[2] + " credits"
+            line = i[0] + "\n" + i[1] + "\n" + i[2] + " credits"
             linecounter += 1
             print(line)
             self.buttonArray[d].setText(_translate("MainWindow", line))
@@ -264,94 +408,7 @@ class Ui_MainWindow(object):
                 if d == 19:
                     break"""
 
-
-
-
-        #data.close()
-        self.label_2.setText(_translate("MainWindow", "Year 1"))
-        self.label_3.setText(_translate("MainWindow", "Year 2"))
-        self.label_4.setText(_translate("MainWindow", "Year 3"))
-        self.label_5.setText(_translate("MainWindow", "Year 4"))
-        """
-        self.pushButton_2.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_3.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_4.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_5.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_6.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_7.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_8.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
-        self.pushButton_9.setText(_translate("MainWindow", line1))
-        self.pushButton_10.setText(_translate("MainWindow", line2))
-        self.pushButton_11.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_12.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_13.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_14.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_15.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_16.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_17.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_18.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_19.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_20.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_21.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_22.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_23.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_24.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_25.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_26.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_27.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_28.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_29.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_30.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_31.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_32.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_33.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_34.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_35.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_36.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_37.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_38.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_39.setText(_translate("MainWindow", "\n"
-""))
-        self.pushButton_40.setText(_translate("MainWindow", "\n"
-""))"""
-
         self.menuTBd.setTitle(_translate("MainWindow", "TBd"))
-
-    def clickme(self):
-        # changing color of button
-        self.pushButton.setStyleSheet("background-color : yellow")
-
-        # adding action to a button
-        self.pushButton.clicked.connect(self.clickme)
-
 
     def processFile(self, fileName):
         name = []
@@ -391,6 +448,8 @@ class Ui_MainWindow(object):
             #ui.buttonArray[i].setText(line)
             #print(line)
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -398,7 +457,4 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    #ui.clickme()
-    data = ui.processFile("CourseInfo.txt")
-    #ui.populate(data, ui)
     sys.exit(app.exec_())
