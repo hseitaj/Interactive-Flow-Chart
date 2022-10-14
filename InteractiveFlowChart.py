@@ -9,11 +9,27 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from SecondWindow import Ui_SecondWindow
+import sys
+#from random import randint
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def openWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SecondWindow()
+        self.ui.setupUi_2(self.window)
+        self.window.show()
 
+    def toggle_window(self, window):
+        if window.isVisible():
+            window.hide()
+        else:
+            window.show()
+
+    def show_new_window(self, checked):
+        self.w.show()
+
+    def setupUi(self, MainWindow):
         self.buttonArray = []
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1196, 754)
@@ -29,7 +45,7 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("color: blue;")
         self.label.setMidLineWidth(1)
         self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow())
         self.pushButton.setGeometry(QtCore.QRect(20, 140, 121, 91))
         self.pushButton.setStyleSheet("background-color: blue;\n"
                                       "color: white;\n"
@@ -98,6 +114,7 @@ class Ui_MainWindow(object):
         self.label_5.setIndent(-2)
         self.label_5.setObjectName("label_5")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+
         self.pushButton_2.setGeometry(QtCore.QRect(20, 240, 121, 91))
         self.pushButton_2.setStyleSheet("color: green;\n"
                                         "")
@@ -390,9 +407,9 @@ class Ui_MainWindow(object):
                             self.pushButton_32, self.pushButton_33, self.pushButton_34,
                             self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38,
                             self.pushButton_39, self.pushButton_40]
-        # self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
 
         data = Ui_MainWindow.processFile(self, "CourseInfo.txt")  # open('CourseInfo.txt', 'r')
+        #print(data)
         d = 0
 
         linecounter = 0
@@ -401,7 +418,7 @@ class Ui_MainWindow(object):
                 break"""
             line = i[0] + "\n" + i[1] + "\n" + i[2] + " credits"
             linecounter += 1
-            print(line)
+            #print(line)
             self.buttonArray[d].setText(_translate("MainWindow", line))
             d = d + 1
             """for j in self.buttonArray:
@@ -447,8 +464,6 @@ class Ui_MainWindow(object):
             line = i[0] + " " + i[1] + " " + i[2] + " credits"
             #ui.buttonArray[i].setText(line)
             #print(line)
-
-
 
 if __name__ == "__main__":
     import sys
