@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1196</width>
-    <height>754</height>
+    <height>797</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>20</y>
+      <x>230</x>
+      <y>30</y>
       <width>771</width>
       <height>31</height>
      </rect>
@@ -46,7 +46,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -70,7 +70,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>100</y>
       <width>1151</width>
       <height>71</height>
      </rect>
@@ -219,7 +219,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -242,7 +242,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -262,7 +262,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -282,7 +282,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -302,13 +302,14 @@ color: white;
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">color: black;
+border : 3px solid rgb(8, 115, 255);
 </string>
     </property>
     <property name="text">
@@ -322,13 +323,15 @@ color: white;
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">background-color: yellow;
+color: black;
+border : 3px solid blue;
 </string>
     </property>
     <property name="text">
@@ -342,14 +345,15 @@ color: white;
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: blue;
+     <string notr="true">background-color: rgb(85, 170, 255);
 color: white;
+border : 3px solid blue;
 </string>
     </property>
     <property name="text">
@@ -366,7 +370,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -389,13 +393,15 @@ color: white;
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">background-color: purple;
+color: white;
+border : 4px solid blue;
 </string>
     </property>
     <property name="text">
@@ -409,7 +415,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -433,7 +439,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -453,13 +459,15 @@ color: white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: black;
+     <string notr="true">background-color: pink;
+color: white;
+border : 3px solid blue;
 </string>
     </property>
     <property name="text">
@@ -473,7 +481,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -493,7 +501,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -516,7 +524,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -536,7 +544,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -560,7 +568,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -580,7 +588,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -603,7 +611,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -623,7 +631,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -647,7 +655,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -667,7 +675,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -687,7 +695,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -707,7 +715,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -730,7 +738,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -750,7 +758,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -774,7 +782,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>740</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -794,7 +802,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -817,7 +825,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>610</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -837,7 +845,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>1030</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -861,7 +869,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>1030</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -881,7 +889,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -901,7 +909,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>1030</x>
-      <y>340</y>
+      <y>380</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -921,7 +929,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>1030</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -944,7 +952,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -964,7 +972,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>140</y>
+      <y>180</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -988,7 +996,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>1030</x>
-      <y>440</y>
+      <y>480</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -1008,7 +1016,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>240</y>
+      <y>280</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -1031,7 +1039,7 @@ color: white;
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>540</y>
+      <y>580</y>
       <width>121</width>
       <height>91</height>
      </rect>
@@ -1045,6 +1053,34 @@ color: white;
     </property>
     <property name="checkable">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>171</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/newPrefix/icon1.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="PSA - Fall 2022/CMPSC 487W/Final Project/test.qrc">:/newPrefix/icon1.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -1066,6 +1102,8 @@ color: white;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="PSA - Fall 2022/CMPSC 487W/Final Project/test.qrc"/>
+ </resources>
  <connections/>
 </ui>
