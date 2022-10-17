@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1140</width>
-    <height>702</height>
+    <width>1196</width>
+    <height>754</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,17 +17,26 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>210</x>
       <y>20</y>
-      <width>751</width>
+      <width>771</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>16</pointsize>
+      <pointsize>18</pointsize>
      </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: blue;</string>
+    </property>
+    <property name="midLineWidth">
+     <number>1</number>
     </property>
     <property name="text">
      <string>Criminal Justice - Bachelor of Science Suggested Academic Plan</string>
@@ -38,8 +47,8 @@
      <rect>
       <x>20</x>
       <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -53,15 +62,23 @@ color: white;
     <property name="checkable">
      <bool>false</bool>
     </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>1081</width>
+      <width>1151</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -70,7 +87,7 @@ color: white;
      <property name="font">
       <font>
        <family>Times New Roman</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -102,7 +119,7 @@ color: white;
      <property name="font">
       <font>
        <family>Times New Roman</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -134,7 +151,7 @@ color: white;
      <property name="font">
       <font>
        <family>Times New Roman</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -166,7 +183,7 @@ color: white;
      <property name="font">
       <font>
        <family>Times New Roman</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -201,508 +218,833 @@ color: white;
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <x>20</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>20</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>20</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>150</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>150</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>150</x>
+      <y>140</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>150</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>150</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
     </property>
     <property name="text">
      <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_11">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>450</x>
       <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_12">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>450</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_13">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>320</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_14">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>450</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_15">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>450</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_16">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <x>320</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_17">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>320</x>
+      <y>140</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_18">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>450</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_19">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>320</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_20">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>320</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_21">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>740</x>
       <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_22">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>740</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_23">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>610</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_24">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>740</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_25">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>740</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_26">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <x>610</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_27">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>610</x>
+      <y>140</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_28">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>740</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_29">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>610</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_30">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>610</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_31">
     <property name="geometry">
      <rect>
-      <x>970</x>
+      <x>1030</x>
       <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_32">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>1030</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_33">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>900</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_34">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>1030</x>
+      <y>340</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_35">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>410</y>
-      <width>111</width>
-      <height>81</height>
+      <x>1030</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_36">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>140</y>
-      <width>111</width>
-      <height>81</height>
+      <x>900</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_37">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>900</x>
+      <y>140</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: blue;
+color: white;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_38">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>500</y>
-      <width>111</width>
-      <height>81</height>
+      <x>1030</x>
+      <y>440</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_39">
     <property name="geometry">
      <rect>
-      <x>970</x>
-      <y>230</y>
-      <width>111</width>
-      <height>81</height>
+      <x>900</x>
+      <y>240</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: green;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_40">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>320</y>
-      <width>111</width>
-      <height>81</height>
+      <x>900</x>
+      <y>540</y>
+      <width>121</width>
+      <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: black;
+</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>CRIMJ 100 (3 cr)</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
@@ -711,7 +1053,7 @@ color: white;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1140</width>
+     <width>1196</width>
      <height>26</height>
     </rect>
    </property>
