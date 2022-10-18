@@ -1,0 +1,14 @@
+    def saveFile(self, readFile, writeFile):
+        ReadFile = open(readFile, "r")
+        WriteFile = open(writeFile, "w")  # Note: Is the StudentInfo unsorted file in the project
+        counter = 0
+        for button in self.buttonArray:
+            if button.isChecked():
+                updated_class = str(input())
+                updated = updated_class.replace(' ', ', ')
+                WriteFile.write(updated)
+                
+            else:
+                print('Not pushed', counter)
+                WriteFile.write(ReadFile.readline())
+            counter+=1
