@@ -3,6 +3,7 @@
 # Second UI
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QLineEdit
 
 
 class Ui_SecondWindow(object):
@@ -124,7 +125,16 @@ class Ui_SecondWindow(object):
 
     def changeCouse(self, index):
         input = self.lineEdit.text()
-        print(input)
+        f = open('CourseInfo.txt', 'r')
+        w = open('UpdatedCourseInfo.txt', 'w')
+        data = f.readlines()
+        updated_line = input.replace(' ', ', ')
+        data[index] = f"{updated_line} \n"
+        w.writelines(data)
+        f.close()
+        w.close()
+
+        #return input
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -150,3 +160,5 @@ def buttonClicked():
     ui.setupUi_2(MainWindow_02)
     MainWindow_02.show()
     sys.exit(app.exec_())
+
+#buttonClicked()
