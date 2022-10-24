@@ -4,7 +4,7 @@
 
 # All right reserved to Penn State Abington.
 
-# Date: 10/19/2022
+# Date: 10/23/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from SecondWindow import Ui_SecondWindow
@@ -583,6 +583,56 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+# Function that accepts the color and the frame of the button
+# And the button in which updates the color
+    def updateColor(color, frame, button):
+
+        if color == "blue":
+                button.setStyleSheet("border-radius: 10px;\n"
+                                             "font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                             "background-color: rgb(153, 210, 242);\n"
+                                             "border: 1px solid black;")
+                if frame == "C":
+                        button.setStyleSheet("border-radius: 10px;\n"
+                                             "font: 75 8pt \"MS Shell Dlg 2\";\n"
+                                             "background-color: rgb(153, 210, 242);\n"
+                                             "border: 3px solid blue;")
+        elif color == "pink":
+                button.setStyleSheet("border-radius: 10px;"
+                                     "background-color: rgb(249, 210, 222);"
+                                     "border: 1px solid black;")
+                if frame == "C":
+                        button.setStyleSheet("border-radius: 10px;\n"
+                                             "background-color: rgb(249, 210, 222);\n"
+                                             "border: 3px solid blue;")
+        elif color == "yellow":
+                button.setStyleSheet("border-radius: 10px;\n"
+                                         "background-color: rgb(255, 219, 169);\n" 
+                                         "border: 1px solid black;")
+                if frame == "C":
+                        button.setStyleSheet("border-radius: 10px;\n"
+                                             "background-color: rgb(255, 219, 169);\n"
+                                             "border: 3px solid blue;")
+        elif color == "purple":
+                button.setStyleSheet("border-radius: 10px;\n"
+                                         "background-color: rgb(179, 145, 181);\n"
+                                         "border: 1px solid black;")
+                if frame == "C":
+                        button.setStyleSheet("border-radius: 10px;\n"
+                                         "background-color: rgb(179, 145, 181);\n"
+                                         "border: 3px solid blue;")
+        elif color == "C":
+                button.setStyleSheet("border-radius: 10px;\nborder: 3px solid blue;")
+
+        elif color == "grey":
+                button.setStyleSheet("border-radius: 10px;\n"
+                                 "background-color: rgb(164, 164, 164);\n"
+                                 "border: 1px solid black;")
+                if frame == "C":
+                        button.setStyleSheet("border-radius: 10px;\n"
+                                 "background-color: rgb(164, 164, 164);\n"
+                                     "border: 3px solid blue;")
+
     def retranslateUi(self, MainWindow):
 
         _translate = QtCore.QCoreApplication.translate
@@ -627,50 +677,62 @@ class Ui_MainWindow(object):
                                                             "Better\n"
                                                             "Required"))
 
-        #self.menuTBd.setTitle(_translate("MainWindow", "TBd"))
-
+# The method will process a ".txt" file into a two dimensional array format
+# The method accepts a valid filename
     def processFile(self, fileName):
         name = []
         courseID = []
         credit = []
         color = []
+        taken = []
         data = []
+        try:
+                myFile = open(fileName, "r")
 
-        myFile = open(fileName, "r")  # Note: Is the StudentInfo unsorted file in the project
-
-        for line in myFile:
-            #line.write()
-            text = line.strip()
-            x = ''.join(text)
-            x = text.split()
-            x = ''.join(x)
-            y = x.split(',')
-            #print(y)  # This line is for debuging
-            name.append(y[0])
-            courseID.append(y[1])
-            credit.append(y[2])
-            color.append(y[3])
-            data.append(y[:])
-            print(data, end = "\n")
+                for line in myFile:
+                    # Strip the whitespaces
+                    text = line.strip()
+                    x = ''.join(text)
+                    x = text.split()
+                    x = ''.join(x)
+                    y = x.split(',')
+                    #print(y)  # This line is for debuging
+                    # Add the data in repsective arrays
+                    name.append(y[0])
+                    courseID.append(y[1])
+                    credit.append(y[2])
+                    color.append(y[3])
+                    taken.append(y[4])
+                    data.append(y[:])
+        except FileNotFoundError as fnf_error:
+                print(fnf_error)
         return data
         myFile.close()
 
+#Populate method takes the processed file and displays the data
+# to the main Window interface and populates the button titles,
+# colors, frames.
     def populate(self, arrayButton, translator):
         data = Ui_MainWindow.processFile(self, "CourseInfo.txt")  # open('CourseInfo.txt', 'r')
-        # print(data)
+        #print(data)
         d = 0
         linecounter = 0
+
         for i in data:
             """if linecounter == 40:
                 break"""
             line = i[0] + "\n" + i[1] + "\n" + i[2] + " credits"
             linecounter += 1
-            # print(line)
+
             arrayButton[d].setText(translator("MainWindow", line))
+
+            if i[4] == "C":
+                    Ui_MainWindow.updateColor(i[3], "C", arrayButton[d])
+            else:
+                    Ui_MainWindow.updateColor(i[3], " ", arrayButton[d])
             d = d + 1
-        # CRIMJ 220 3 pink => ['CRIMJ', '220', '3', 'pink']
 
-
+#Main method to run the program
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
