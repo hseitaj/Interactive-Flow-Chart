@@ -7,7 +7,7 @@
 # Date: 10/23/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from SecondWindow import Ui_SecondWindow
+from SecondWindow2 import Ui_SecondWindow
 import sys
 
 class Ui_MainWindow(object):
@@ -16,6 +16,23 @@ class Ui_MainWindow(object):
         self.ui = Ui_SecondWindow()
         self.ui.setupUi_2(self.window)
         self.window.show()
+
+    def test(self, buttonArray):
+        #self.openWindow()
+        #ui = Ui_SecondWindow()
+        #text = ui.changeCouse()
+        #text = "testing"
+        for b in buttonArray:
+                 if not b.isChecked():
+                        #b.clicked.openWindow()
+                        #b.setText(text)
+                        break
+        #text = Ui_SecondWindow.changeCouse()
+        print("text")
+        #button.clicked.disconnect()
+        #button.setText(text)
+        #button.setText("Click me")
+        #button.clicked.connect(self.test(button))
 
     def toggle_window(self, window):
         if window.isVisible():
@@ -45,7 +62,7 @@ class Ui_MainWindow(object):
         self.label.setMidLineWidth(1)
         self.label.setObjectName("label")
 
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow())
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow()) #self.test(self.pushButton)) #openWindow()
         self.pushButton.setGeometry(QtCore.QRect(20, 140, 121, 91))
         self.pushButton.setStyleSheet("border-radius: 7px;\n"
 "font: 75 8pt \"MS Shell Dlg 2\";\n"
@@ -54,6 +71,7 @@ class Ui_MainWindow(object):
         self.pushButton.setCheckable(False)
         self.pushButton.setAutoDefault(True)
         self.pushButton.setObjectName("pushButton")
+        #self.pushButton.
         self.splitter = QtWidgets.QSplitter(self.centralwidget)
         self.splitter.setGeometry(QtCore.QRect(10, 60, 1151, 71))
         font = QtGui.QFont()
@@ -583,6 +601,23 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def saveFile(self, readFile, writeFile):
+            ReadFile = open(readFile, "r")
+            WriteFile = open(writeFile, "w")  # Note: Is the StudentInfo unsorted file in the project
+            counter = 0
+            for button in self.buttonArray:
+                    if button.isChecked():
+                            updated_class = str(input())
+                            updated = updated_class.replace(' ', ', ')
+                            WriteFile.write(updated)
+
+                    else:
+                            print('Not pushed', counter)
+                            WriteFile.write(ReadFile.readline())
+                    counter += 1
+            ReadFile.close()
+            WriteFile.close()
+
 # Function that accepts the color and the frame of the button
 # And the button in which updates the color
     def updateColor(color, frame, button):
@@ -658,6 +693,7 @@ class Ui_MainWindow(object):
                             self.pushButton_39, self.pushButton_40]
 
         Ui_MainWindow.populate(self, arrayButton=self.buttonArray, translator=_translate)
+        Ui_MainWindow.test(self, buttonArray=self.buttonArray)
 
         self.pushButton_41.setText(_translate("MainWindow", "Core\n"
                                                             "(In\n"
@@ -738,5 +774,6 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    #ui.saveFile()
     MainWindow.show()
     sys.exit(app.exec_())
