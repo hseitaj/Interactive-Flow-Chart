@@ -4,17 +4,16 @@
 
 # All right reserved to Penn State Abington.
 
-# Date:
+# Date: 11/03/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon
-#from SecondWindow2 import Ui_SecondWindow
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 import re
 
+# Second window to update the button information
 class Ui_SecondWindow(object):
     def setupUi_2(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -195,7 +194,7 @@ class Ui_SecondWindow(object):
         self.button.setText(text)
         print(text, button.title(), end= "  ")
 
-
+    #Needs Comments
     def changeCourse(self):
         self.errorLbl.clear()
         courseCode = self.lineEdit.text()
@@ -227,8 +226,6 @@ class Ui_SecondWindow(object):
             w.close()
 
             #return line
-
-
     """
             ADD CODE aBOVE THIS COMMENT SECTION
             ADD CODE BELOW THIS COMMENT SECTION
@@ -284,8 +281,6 @@ class Ui_MainWindow(object):
                     window.show()
                     print("tog else")
 
-        def show_new_window(self, checked):
-                self.w.show()
 
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
@@ -306,8 +301,8 @@ class Ui_MainWindow(object):
                 self.label.setMidLineWidth(1)
                 self.label.setObjectName("label")
 
-                # self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow())
-                # self.pushButton = QtWidgets.QPushButton(self.onBtn1Clicked())
+                self.fileName = ""
+                # TBD
                 self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.onBtn1Clicked())
 
 
@@ -804,7 +799,7 @@ class Ui_MainWindow(object):
                 self.nameLbl.setObjectName("nameLbl")
 
                 #Upload button
-                self.uploadButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.getOpenFileName())
+                self.uploadButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.uploadButton_handler())
                 self.uploadButton.setGeometry(QtCore.QRect(710, 50, 61, 31))
                 font = QtGui.QFont()
                 font.setFamily("MS Shell Dlg 2")
@@ -895,16 +890,16 @@ class Ui_MainWindow(object):
                            ADD CODE BELOW THIS COMMENT SECTION
                 """
 
-                #self.enterBtn.clicked.connect(self.addName)
-                self.retranslateUi(MainWindow, pathTr=None)
+                self.retranslateUi(MainWindow, self.fileName)
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        #TBD
         def onBtn1Clicked(self):
                 self.openWindow()
                 self.pushButton.clicked.disconnect()
                 self.pushButton.setText("Click To Refresh")
                 self.pushButton.clicked.connect(self.onBtn1ClickedAgain)
-
+        #TBD
         def onBtn1ClickedAgain(self):
                 f = open('UpdatedCourseInfo.txt', 'r')
                 data = f.readlines()
@@ -913,6 +908,7 @@ class Ui_MainWindow(object):
                 self.pushButton.clicked.connect(self.onBtn1Clicked)
                 f.close()
 
+        #TBD
         def saveFile(self):
                 counter = 0
                 for button in self.buttonArray:
@@ -955,6 +951,7 @@ class Ui_MainWindow(object):
                 return data
                 myFile.close()
 
+        # TBD
         def saveFile(self, readFile, writeFile):
                 ReadFile = open(readFile, "r")
                 WriteFile = open(writeFile, "w")
@@ -974,7 +971,6 @@ class Ui_MainWindow(object):
 
         # Function that accepts the color and the frame of the button
         # And the button in which updates the color
-
         def updateColor(color, frame, button):
 
                 if color == "blue":
@@ -1028,19 +1024,28 @@ class Ui_MainWindow(object):
         # to the main Window interface and populates the button titles,
         # colors, frames.
         def populate(self, arrayButton, path, translator):
-                if path:
-                        data = Ui_MainWindow.processFile(self, path)
-                        print("Filename entered: None")
-                else:
-                        data = Ui_MainWindow.processFile(self, "CourseInfo.txt")
-                        print("Else statement. Filename entered: None")
-                # print(data)
+
+                data = Ui_MainWindow.processFile(self, path)
+                print("Filename entered: {}".format(path))
+                #print(data)
+
                 d = 0
                 linecounter = 0
+                # In case the text file does not have enough (40 lines of information)
+                # Display whatever the file information has and empty the rest of the buttons
+                for i in arrayButton:
+                        arrayButton[d].setText("")
+                        arrayButton[d].setStyleSheet("border-radius: 10px;\n"
+                                             "background-color: rgb(164, 164, 164);\n"
+                                             "border: 1px solid black;")
+                        d = d + 1
 
+                d = 0
+                # Populate the buttons with the information of the text file
+                # Note: expectation is that the text file has at least 40 lines
                 for i in data:
-                        """if linecounter == 40:
-                            break"""
+                        if linecounter == len(data):
+                            break
                         line = i[0] + "\n" + i[1] + "\n" + i[2] + " credits"
                         linecounter += 1
 
@@ -1052,34 +1057,42 @@ class Ui_MainWindow(object):
                                 Ui_MainWindow.updateColor(i[3], " ", arrayButton[d])
                         d = d + 1
 
-        def pushButton_handler(self):
-                _translate = QtCore.QCoreApplication.translate
-                print("Button pressed")
-                #self.open_dialog_box()
-                filename = self.getOpenFileName()
-                #self.populate(arrayButton=self.buttonArray, path=filename, translator=_translate)
-                self.retranslateUi(self, MainWindow, filename)
+        # Uplaod button calls getOpenFileName() to retrive the file path
+        # Uses the path to re-translate the information into the window
+        def uploadButton_handler(self):
+                path = self.getOpenFileName()
+                self.retranslateUi(MainWindow, newPath=path)
 
-
+        # Uses QFileDialog to get a file name form the directory
+        # Restricted to Text files and All files only
+        # returns the file path
         def getOpenFileName(self):
                 file_filter = 'All Files (*);;Text Files (*.txt)'
                 response = QFileDialog.getOpenFileName(
-                        caption='Select a data file',
+                        caption='Please Select a Text File',
                         directory='Text file.txt',
                         filter=file_filter,
                         initialFilter='Text Files (*.txt)'
                 )
-                print(response[0])
+                #print(response[0])
                 return response[0]
 
+        # TBD
+        # There is a label in the bottom of the Main window that will display
+        # A congratulations message if the user has selected all buttons as taken
         def congratulationsMsg(self):
+                self.congratulationsLbl.setText("Congratulations!!!")
                 print()
 
+        # TBD
+        # The method adds the name of the user to the text file
+        # Planing to save the username as the last line of the text file
+        # In case the upload button is called it needs to display (setVisible)
         def addName(self):
                 name = self.inputBox.text()
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
-                self.congratulationsLbl.setText("Congratulations!!!")
+                #self.congratulationsLbl.setText("Congratulations!!!")
                 print(name)
 
         """
@@ -1089,7 +1102,9 @@ class Ui_MainWindow(object):
                 ADD CODE ABOVE THIS COMMENT SECTION
         """
 
-        def retranslateUi(self, MainWindow, pathTr):
+        # Method to re-translate the MainWindow and looking for a new path
+        # This method will call other methods as: populate to generate the interface
+        def retranslateUi(self, MainWindow, newPath):
                 _translate = QtCore.QCoreApplication.translate
                 MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
                 self.label.setText(_translate("MainWindow", "Criminal Justice - Bachelor of Science Suggested Academic Plan"))
@@ -1111,9 +1126,11 @@ class Ui_MainWindow(object):
                                     self.pushButton_32, self.pushButton_33, self.pushButton_34,
                                     self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38,
                                     self.pushButton_39, self.pushButton_40]
-                #myFile = self.getSaveFileName()
-                Ui_MainWindow.populate(self, arrayButton=self.buttonArray, path=pathTr, translator=_translate)
-                #Ui_MainWindow.test(self, buttonArray=self.buttonArray)
+
+                newPath = newPath if newPath else "CourseInfo.txt"
+                self.fileName = newPath
+                Ui_MainWindow.populate(self, arrayButton=self.buttonArray, path = newPath, translator=_translate)
+
                 self.pushButton_41.setText(_translate("MainWindow", "Core\n"
                 "(In\n"
                 " Major)"))
@@ -1135,6 +1152,7 @@ class Ui_MainWindow(object):
                 self.uploadButton.setText(_translate("MainWindow", "Upload"))
                 self.menuTBd.setTitle(_translate("MainWindow", "Main WIndow"))
 
+# Main method that instantiate the class and calls the methods accordingly
 if __name__ == "__main__":
         import sys
         app = QtWidgets.QApplication(sys.argv)
