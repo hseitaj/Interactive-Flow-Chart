@@ -10,18 +10,16 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
 from PyQt5.QtGui import QIcon
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
 import re
 
-# Second window to update the button information
 class Ui_SecondWindow(object):
     def setupUi_2(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(794, 601)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.courseCodeLbl = QtWidgets.QLabel(self.centralwidget)
-        self.courseCodeLbl.setGeometry(QtCore.QRect(220, 160, 81, 21))
+        self.courseCodeLbl.setGeometry(QtCore.QRect(240, 140, 101, 21))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -29,7 +27,7 @@ class Ui_SecondWindow(object):
         self.courseCodeLbl.setFont(font)
         self.courseCodeLbl.setObjectName("courseCodeLbl")
         self.changeCourseBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.changeCourseBtn.setGeometry(QtCore.QRect(490, 310, 75, 35))
+        self.changeCourseBtn.setGeometry(QtCore.QRect(390, 310, 75, 35))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -41,7 +39,7 @@ class Ui_SecondWindow(object):
 "color: white;")
         self.changeCourseBtn.setObjectName("changeCourseBtn")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(320, 150, 113, 35))
+        self.lineEdit.setGeometry(QtCore.QRect(360, 130, 141, 31))
         self.lineEdit.setStyleSheet("border: 1px solid black;")
         self.lineEdit.setObjectName("lineEdit")
         self.blueBtn = QtWidgets.QPushButton(self.centralwidget)
@@ -111,7 +109,7 @@ class Ui_SecondWindow(object):
         font.setWeight(50)
         self.takenBtn.setFont(font)
         self.takenBtn.setStyleSheet("border-radius: 10px;\n"
-"background-color: rgb(164, 164, 164);\n"
+"background-color: rgb(211,211,211);\n"
 "border: 1px solid black;")
         self.takenBtn.setAutoRepeatDelay(300)
         self.takenBtn.setAutoRepeatInterval(100)
@@ -125,13 +123,13 @@ class Ui_SecondWindow(object):
         font.setWeight(50)
         self.cnotcBtn.setFont(font)
         self.cnotcBtn.setStyleSheet("border-radius: 10px;\n"
-"border: 1px solid black;")
+"border: 3px solid blue;")
         self.cnotcBtn.setAutoRepeatDelay(300)
         self.cnotcBtn.setAutoRepeatInterval(100)
         self.cnotcBtn.setFlat(False)
         self.cnotcBtn.setObjectName("cnotcBtn")
         self.courseIDLbl = QtWidgets.QLabel(self.centralwidget)
-        self.courseIDLbl.setGeometry(QtCore.QRect(220, 220, 81, 21))
+        self.courseIDLbl.setGeometry(QtCore.QRect(250, 200, 81, 21))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -139,11 +137,11 @@ class Ui_SecondWindow(object):
         self.courseIDLbl.setFont(font)
         self.courseIDLbl.setObjectName("courseIDLbl")
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(320, 210, 113, 35))
+        self.lineEdit_2.setGeometry(QtCore.QRect(360, 190, 141, 31))
         self.lineEdit_2.setStyleSheet("border: 1px solid black;")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.numberOfCreditsLbl = QtWidgets.QLabel(self.centralwidget)
-        self.numberOfCreditsLbl.setGeometry(QtCore.QRect(220, 280, 81, 21))
+        self.numberOfCreditsLbl.setGeometry(QtCore.QRect(250, 260, 81, 21))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -151,7 +149,7 @@ class Ui_SecondWindow(object):
         self.numberOfCreditsLbl.setFont(font)
         self.numberOfCreditsLbl.setObjectName("numberOfCreditsLbl")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(320, 270, 113, 35))
+        self.lineEdit_3.setGeometry(QtCore.QRect(360, 250, 141, 31))
         self.lineEdit_3.setStyleSheet("border: 1px solid black;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.errorLbl = QtWidgets.QLabel(self.centralwidget)
@@ -162,32 +160,70 @@ class Ui_SecondWindow(object):
         self.errorLbl.setStyleSheet("color: rgb(255, 0, 0);")
         self.errorLbl.setText("")
         self.errorLbl.setObjectName("errorLbl")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(210, 50, 361, 31))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(20)
+        self.label.setFont(font)
+        self.label.setMouseTracking(True)
+        self.label.setStyleSheet("color: blue;")
+        self.label.setMidLineWidth(1)
+        self.label.setObjectName("label")
+        #self.label.setVisible()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 794, 26))
         self.menubar.setObjectName("menubar")
+        self.menuChange_Your_Schedule = QtWidgets.QMenu(self.menubar)
+        self.menuChange_Your_Schedule.setObjectName("menuChange_Your_Schedule")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menubar.addAction(self.menuChange_Your_Schedule.menuAction())
+
+        """
+                ADD CODE BELOW THIS COMMENT SECTION
+                ADD CODE BELOW THIS COMMENT SECTION
+                ADD CODE BELOW THIS COMMENT SECTION
+                ADD CODE BELOW THIS COMMENT SECTION
+        """
+
+        self.changeCourseBtn.clicked.connect(self.changeCourse)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        """
-            ADD CODE BELOW THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-        """
-
-        self.changeCourseBtn.clicked.connect(self.changeCourse)
     """ self.blueBtn.clicked.connect(self.changeCourse)
         self.pinkBtn.clicked.connect(self.changeCourse)
         self.yellowBtn.clicked.connect(self.changeCourse)
         self.violetBtn.clicked.connect(self.changeCourse)
         self.cnotcBtn.clicked.connect(self.changeCourse)
-        self.takenBtn.clicked.connect(self.changeCourse)"""
+        self.takenBtn.clicked.connect(self.changeCourse)
+    """
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Change Course"))
+        self.courseCodeLbl.setText(_translate("MainWindow", "Course Code"))
+        self.changeCourseBtn.setText(_translate("MainWindow", "Change"))
+        self.blueBtn.setText(_translate("MainWindow", "Core\n"
+"(In\n"
+" Major)"))
+        self.pinkBtn.setText(_translate("MainWindow", "Gen.\n"
+"Ed."))
+        self.violetBtn.setText(_translate("MainWindow", "Major &\n"
+"Gen.\n"
+" Ed."))
+        self.yellowBtn.setText(_translate("MainWindow", "Elective"))
+        self.takenBtn.setText(_translate("MainWindow", "Taken"))
+        self.cnotcBtn.setText(_translate("MainWindow", "C or\n"
+"Better \n"
+"Required"))
+        self.courseIDLbl.setText(_translate("MainWindow", "Course ID"))
+        self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
+        self.label.setText(_translate("MainWindow", "Update Course Information"))
+        #self.menuChange_Your_Schedule.setTitle(_translate("MainWindow", "Change Your Schedule"))
 
     def buttonClick(self, button):
         text = self.changeCouse()
@@ -201,7 +237,7 @@ class Ui_SecondWindow(object):
         courseID = self.lineEdit_2.text()
         numberOfCredits = self.lineEdit_3.text()
 
-        courseCodeRegex = re.search("^\s*[A-Za-z]{5}\s*$", courseCode)
+        courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
         courseIDRegex = re.search("^\s*[0-9]{3}\s*$", courseID)
         numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
 
@@ -211,7 +247,7 @@ class Ui_SecondWindow(object):
             f = open('CourseInfo.txt', 'r')
             w = open('UpdatedCourseInfo.txt', 'w')
 
-            courseCodeFinal = courseCode.replace(" ", ", ")
+            courseCodeFinal = courseCode
             courseIDFinal = courseID.replace(" ", ", ")
             numberOfCreditsFinal = numberOfCredits.replace(" ", ", ")
             myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
@@ -232,37 +268,6 @@ class Ui_SecondWindow(object):
             ADD CODE BELOW THIS COMMENT SECTION
             ADD CODE BELOW THIS COMMENT SECTION
     """
-
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.courseCodeLbl.setText(_translate("MainWindow", "Course Code"))
-        self.changeCourseBtn.setText(_translate("MainWindow", "Change"))
-        self.blueBtn.setText(_translate("MainWindow", "Core\n"
-"(In\n"
-" Major)"))
-        self.pinkBtn.setText(_translate("MainWindow", "Gen.\n"
-"Ed."))
-        self.violetBtn.setText(_translate("MainWindow", "Major &\n"
-"Gen.\n"
-" Ed."))
-        self.yellowBtn.setText(_translate("MainWindow", "Elective"))
-        self.takenBtn.setText(_translate("MainWindow", "Taken"))
-        self.cnotcBtn.setText(_translate("MainWindow", "C or\n"
-"Better \n"
-"Required"))
-        self.courseIDLbl.setText(_translate("MainWindow", "Course ID"))
-        self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
-        #self.buttonArray = [self.pushButton, self.pushButton_2, self.pushButton_3, self.pushButton_4, self.pushButton_5]
-
-"""if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow_02 = QtWidgets.QMainWindow()
-    ui = Ui_SecondWindow()
-    ui.setupUi_2(MainWindow_02)
-    MainWindow_02.show()
-    sys.exit(app.exec_())"""
 
 class Ui_MainWindow(object):
         def openWindow(self):
@@ -304,7 +309,6 @@ class Ui_MainWindow(object):
                 self.fileName = ""
                 # TBD
                 self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.onBtn1Clicked())
-
 
                 #self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow())
                 self.pushButton.setGeometry(QtCore.QRect(20, 180, 121, 91))
@@ -671,7 +675,7 @@ class Ui_MainWindow(object):
                 self.pushButton_42.setFlat(False)
                 self.pushButton_42.setObjectName("pushButton_42")
                 self.label_11 = QtWidgets.QLabel(self.centralwidget)
-                self.label_11.setGeometry(QtCore.QRect(750, 730, 311, 16))
+                self.label_11.setGeometry(QtCore.QRect(750, 730, 311, 16))  #750, 730, 311, 16
                 self.label_11.setObjectName("label_11")
                 self.pushButton_43 = QtWidgets.QPushButton(self.centralwidget)
                 self.pushButton_43.setGeometry(QtCore.QRect(530, 720, 70, 70))
@@ -715,24 +719,33 @@ class Ui_MainWindow(object):
                 self.pushButton_45.setFlat(False)
                 self.pushButton_45.setObjectName("pushButton_45")
                 self.label_12 = QtWidgets.QLabel(self.centralwidget)
-                self.label_12.setGeometry(QtCore.QRect(740, 760, 341, 20))
+                self.label_12.setGeometry(QtCore.QRect(720, 760, 386, 16)) #740, 760, 341, 20
                 self.label_12.setObjectName("label_12")
                 self.label_10 = QtWidgets.QLabel(self.centralwidget)
-                self.label_10.setGeometry(QtCore.QRect(100, 740, 61, 31))
+                self.label_10.setGeometry(QtCore.QRect(100, 740, 61, 31)) #100, 740, 61, 31
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 font.setBold(True)
                 font.setWeight(75)
                 self.label_10.setFont(font)
                 self.label_10.setObjectName("label_10")
-                self.pushButton_46 = QtWidgets.QPushButton(self.centralwidget)
+
+                self.boxLabel = QtWidgets.QLabel(self.centralwidget)
+                self.boxLabel.setGeometry(QtCore.QRect(70, 710, 1050, 91)) #70, 710, 1021, 91
+                self.boxLabel.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+                "border: 1px solid black;\n"
+                "border-radius: 7px;")
+
+                """self.pushButton_46 = QtWidgets.QPushButton(self.centralwidget)
                 self.pushButton_46.setGeometry(QtCore.QRect(70, 710, 1021, 91))
                 self.pushButton_46.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                 "border: 1px solid black;\n"
                 "border-radius: 7px;")
                 self.pushButton_46.setText("")
-                self.pushButton_46.setObjectName("pushButton_46")
+                self.pushButton_46.setObjectName("pushButton_46")"""
                 self.pushButton_47 = QtWidgets.QPushButton(self.centralwidget)
+
+
                 self.pushButton_47.setGeometry(QtCore.QRect(440, 720, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -814,7 +827,7 @@ class Ui_MainWindow(object):
                 "background-color: green;\n"
                 "border: 1px solid black;")
                 self.uploadButton.setObjectName("UploadButton")
-                self.pushButton_46.raise_()
+                #self.pushButton_46.raise_()
                 self.label.raise_()
                 self.pushButton.raise_()
                 self.splitter.raise_()
@@ -908,18 +921,8 @@ class Ui_MainWindow(object):
                 self.pushButton.clicked.connect(self.onBtn1Clicked)
                 f.close()
 
-        #TBD
-        def saveFile(self):
-                counter = 0
-                for button in self.buttonArray:
-                        counter += 1
-                        if self.buttonArray[counter].isChecked():
-                                #SecondWindow.Ui_SecondWindow.changeCouse(counter)
-                                QtWidgets.QMainWindow.update()
-                        else:
-                                pass
-
         # The method will process a ".txt" file into a two dimensional array format
+        # Also the method won't add any empty lines to the general data list.
         # The method accepts a valid filename
         def processFile(self, fileName):
                 name = []
@@ -934,22 +937,28 @@ class Ui_MainWindow(object):
                         for line in myFile:
                                 # Strip the whitespaces
                                 text = line.strip()
-                                x = ''.join(text)
-                                x = text.split()
-                                x = ''.join(x)
-                                y = x.split(',')
-                                # print(y)  # This line is for debuging
-                                # Add the data in repsective arrays
-                                name.append(y[0])
-                                courseID.append(y[1])
-                                credit.append(y[2])
-                                color.append(y[3])
-                                taken.append(y[4])
-                                data.append(y[:])
+                                if text == '':
+                                        #print("Empty line") - When it finds a empty line it breaks out of the loop
+                                        pass
+                                else:
+                                        x = ''.join(text)
+                                        x = text.split()
+                                        x = ''.join(x)
+                                        y = x.split(',')
+                                        #print(y)  # This line is for debugging
+                                        # Add the data in respective arrays
+                                        name.append(y[0])
+                                        courseID.append(y[1])
+                                        credit.append(y[2])
+                                        color.append(y[3])
+                                        taken.append(y[4])
+                                        data.append(y[:])
                 except FileNotFoundError as fnf_error:
                         print(fnf_error)
+                finally:
+                        myFile.close()
                 return data
-                myFile.close()
+
 
         # TBD
         def saveFile(self, readFile, writeFile):
@@ -1012,11 +1021,11 @@ class Ui_MainWindow(object):
 
                 elif color == "grey":
                         button.setStyleSheet("border-radius: 10px;\n"
-                                             "background-color: rgb(164, 164, 164);\n"
-                                             "border: 1px solid black;")
+                                       "background-color: rgb(211,211,211);\n"
+                                       "border: 1px solid black;")
                         if frame == "C":
                                 button.setStyleSheet("border-radius: 10px;\n"
-                                                     "background-color: rgb(164, 164, 164);\n"
+                                                     "background-color: rgb(211,211,211);\n"
                                                      "border: 3px solid blue;")
 
 
@@ -1029,35 +1038,41 @@ class Ui_MainWindow(object):
                 print("Filename entered: {}".format(path))
                 #print(data)
 
-                d = 0
-                linecounter = 0
+                counter = 0
+
                 # In case the text file does not have enough (40 lines of information)
                 # Display whatever the file information has and empty the rest of the buttons
                 for i in arrayButton:
-                        arrayButton[d].setText("")
-                        arrayButton[d].setStyleSheet("border-radius: 10px;\n"
+                        arrayButton[counter].setText("")
+                        arrayButton[counter].setStyleSheet("border-radius: 10px;\n"
                                              "background-color: rgb(164, 164, 164);\n"
                                              "border: 1px solid black;")
-                        d = d + 1
+                        counter = counter + 1
 
-                d = 0
+                counter = 0
                 # Populate the buttons with the information of the text file
                 # Note: expectation is that the text file has at least 40 lines
                 for i in data:
-                        if linecounter == len(data):
+                        if counter == len(arrayButton) or counter == len(data):
                             break
-                        line = i[0] + "\n" + i[1] + "\n" + i[2] + " credits"
-                        linecounter += 1
-
-                        arrayButton[d].setText(translator("MainWindow", line))
-
-                        if i[4] == "C":
-                                Ui_MainWindow.updateColor(i[3], "C", arrayButton[d])
                         else:
-                                Ui_MainWindow.updateColor(i[3], " ", arrayButton[d])
-                        d = d + 1
+                                line = i[0] + "\n" + i[1] + "\n" + i[2] + " credit/s"
+                                #print("Counter", counter, end="\n")
 
-        # Uplaod button calls getOpenFileName() to retrive the file path
+                                arrayButton[counter].setText(translator("MainWindow", line))
+
+                                #If there is a color in the text file, - if statement to not crash
+                                if i[3] != " ":
+                                        # If there is is a frame for "C or better grade"
+                                        if i[4] == "C":
+                                                Ui_MainWindow.updateColor(i[3], "C", arrayButton[counter])
+                                        else:
+                                                Ui_MainWindow.updateColor(i[3], " ", arrayButton[counter])
+                                else:
+                                        print("Skip line")
+                        counter = counter + 1
+
+        # Upload button calls getOpenFileName() to retrieve the file path
         # Uses the path to re-translate the information into the window
         def uploadButton_handler(self):
                 path = self.getOpenFileName()
@@ -1092,8 +1107,9 @@ class Ui_MainWindow(object):
                 name = self.inputBox.text()
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
-                #self.congratulationsLbl.setText("Congratulations!!!")
+                self.congratulationsLbl.setText("Congratulations!!!")
                 print(name)
+                return name
 
         """
                 ADD CODE ABOVE THIS COMMENT SECTION
@@ -1106,7 +1122,7 @@ class Ui_MainWindow(object):
         # This method will call other methods as: populate to generate the interface
         def retranslateUi(self, MainWindow, newPath):
                 _translate = QtCore.QCoreApplication.translate
-                MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+                MainWindow.setWindowTitle(_translate("MainWindow", "Interactive Flow-Chart"))
                 self.label.setText(_translate("MainWindow", "Criminal Justice - Bachelor of Science Suggested Academic Plan"))
                 self.pushButton.setText(_translate("MainWindow", "CRIMJ 100 (3 cr)"))
                 self.label_2.setText(_translate("MainWindow", "Year 1"))
@@ -1150,7 +1166,7 @@ class Ui_MainWindow(object):
                 self.enterBtn.setText(_translate("MainWindow", "Enter"))
                 self.nameLbl.setText(_translate("MainWindow", "Name:"))
                 self.uploadButton.setText(_translate("MainWindow", "Upload"))
-                self.menuTBd.setTitle(_translate("MainWindow", "Main WIndow"))
+                #self.menuTBd.setTitle(_translate("MainWindow", "Interactive FlowChart"))
 
 # Main method that instantiate the class and calls the methods accordingly
 if __name__ == "__main__":
