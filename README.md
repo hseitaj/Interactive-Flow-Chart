@@ -1,5 +1,14 @@
 # InteractiveFlowChart
 
+Notes:
+
+Command prompt run to conver the '.py' file to '.exe':
+
+pip install auto-py-to-exe
+
+auto-py-to-exe
+
+
 Command prompt script to turn '.ui' file into '.py':
 
 pyuic5
