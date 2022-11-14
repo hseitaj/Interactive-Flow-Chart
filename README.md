@@ -1,18 +1,22 @@
 # InteractiveFlowChart
 
-Notes:
+An interactive flowchart for Criminology (B.S) in Penn State Abington.
+An application that will help the user to organize their courses using visual blocks (tiles).
+Each block represents a course that can be updated by the user.
+Each block can be one of the four colors.
+A color represents which category a course belongs to.
+Each section is one year school year and has 10 courses.
+There will be 40 courses in total. 
 
-Command prompt run to conver the '.py' file to '.exe':
-
-pip install auto-py-to-exe
-
-auto-py-to-exe
 
 
-Command prompt script to turn '.ui' file into '.py':
 
-pyuic5
+Instruction on how to run the application:
 
-pyuic5 -x project.ui -o versionX.py
+Download the zip file and extract the files in your own directory.
+Run the provided executable file.
+Click the upload button and choose your text file with the personal customized version of it.
+Rearrange courses to your own needs.
 
-Interactive flowchart in development...
+
+All rights reserved to the collaborators.
