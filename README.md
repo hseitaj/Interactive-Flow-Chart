@@ -8,6 +8,7 @@ A color represents which category a course belongs to.
 Each section is one year school year and has 10 courses.
 There will be 40 courses in total. 
 
+![Class Diagram](https://user-images.githubusercontent.com/67917151/201748975-80422276-94bf-4340-a33a-83048b7bdd46.png)
 
 
 
