@@ -7,267 +7,264 @@
 # Date: 11/03/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QFileDialog
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QFileDialog
 import sys
 import re
 
 class Ui_SecondWindow(object):
-    def setupUi_2(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(794, 601)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.courseCodeLbl = QtWidgets.QLabel(self.centralwidget)
-        self.courseCodeLbl.setGeometry(QtCore.QRect(240, 140, 101, 21))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.courseCodeLbl.setFont(font)
-        self.courseCodeLbl.setObjectName("courseCodeLbl")
-        self.changeCourseBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.changeCourseBtn.setGeometry(QtCore.QRect(390, 310, 75, 35))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.changeCourseBtn.setFont(font)
-        self.changeCourseBtn.setStyleSheet("border-radius: 10;\n"
-"background-color: rgb(95, 91, 85);\n"
-"border: 1px solid black;\n"
-"color: white;")
-        self.changeCourseBtn.setObjectName("changeCourseBtn")
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setGeometry(QtCore.QRect(360, 130, 141, 31))
-        self.lineEdit.setStyleSheet("border: 1px solid black;")
-        self.lineEdit.setObjectName("lineEdit")
-        self.blueBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.blueBtn.setGeometry(QtCore.QRect(130, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.blueBtn.setFont(font)
-        self.blueBtn.setStyleSheet("border-radius: 10px;\n"
-"font: 75 8pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(153, 210, 242);\n"
-"border: 1px solid black;")
-        self.blueBtn.setAutoRepeatDelay(300)
-        self.blueBtn.setAutoRepeatInterval(100)
-        self.blueBtn.setFlat(False)
-        self.blueBtn.setObjectName("blueBtn")
-        self.pinkBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.pinkBtn.setGeometry(QtCore.QRect(220, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.pinkBtn.setFont(font)
-        self.pinkBtn.setStyleSheet("border-radius: 10px;\n"
-"background-color: rgb(249, 210, 222);\n"
-"border: 1px solid black;")
-        self.pinkBtn.setAutoRepeatDelay(300)
-        self.pinkBtn.setAutoRepeatInterval(100)
-        self.pinkBtn.setFlat(False)
-        self.pinkBtn.setObjectName("pinkBtn")
-        self.violetBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.violetBtn.setGeometry(QtCore.QRect(400, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.violetBtn.setFont(font)
-        self.violetBtn.setStyleSheet("border-radius: 10px;\n"
-"background-color: rgb(179, 145, 181);\n"
-"border: 1px solid black;")
-        self.violetBtn.setAutoRepeatDelay(300)
-        self.violetBtn.setAutoRepeatInterval(100)
-        self.violetBtn.setFlat(False)
-        self.violetBtn.setObjectName("violetBtn")
-        self.yellowBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.yellowBtn.setGeometry(QtCore.QRect(310, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.yellowBtn.setFont(font)
-        self.yellowBtn.setStyleSheet("border-radius: 10px;\n"
-"background-color: rgb(255, 219, 169);\n"
-"border: 1px solid black;")
-        self.yellowBtn.setAutoRepeatDelay(300)
-        self.yellowBtn.setAutoRepeatInterval(100)
-        self.yellowBtn.setFlat(False)
-        self.yellowBtn.setObjectName("yellowBtn")
-        self.takenBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.takenBtn.setGeometry(QtCore.QRect(580, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.takenBtn.setFont(font)
-        self.takenBtn.setStyleSheet("border-radius: 10px;\n"
-"background-color: rgb(211,211,211);\n"
-"border: 1px solid black;")
-        self.takenBtn.setAutoRepeatDelay(300)
-        self.takenBtn.setAutoRepeatInterval(100)
-        self.takenBtn.setFlat(False)
-        self.takenBtn.setObjectName("takenBtn")
-        self.cnotcBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.cnotcBtn.setGeometry(QtCore.QRect(490, 390, 70, 70))
-        font = QtGui.QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        self.cnotcBtn.setFont(font)
-        self.cnotcBtn.setStyleSheet("border-radius: 10px;\n"
-"border: 3px solid blue;")
-        self.cnotcBtn.setAutoRepeatDelay(300)
-        self.cnotcBtn.setAutoRepeatInterval(100)
-        self.cnotcBtn.setFlat(False)
-        self.cnotcBtn.setObjectName("cnotcBtn")
-        self.courseIDLbl = QtWidgets.QLabel(self.centralwidget)
-        self.courseIDLbl.setGeometry(QtCore.QRect(250, 200, 81, 21))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.courseIDLbl.setFont(font)
-        self.courseIDLbl.setObjectName("courseIDLbl")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_2.setGeometry(QtCore.QRect(360, 190, 141, 31))
-        self.lineEdit_2.setStyleSheet("border: 1px solid black;")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.numberOfCreditsLbl = QtWidgets.QLabel(self.centralwidget)
-        self.numberOfCreditsLbl.setGeometry(QtCore.QRect(250, 260, 81, 21))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.numberOfCreditsLbl.setFont(font)
-        self.numberOfCreditsLbl.setObjectName("numberOfCreditsLbl")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_3.setGeometry(QtCore.QRect(360, 250, 141, 31))
-        self.lineEdit_3.setStyleSheet("border: 1px solid black;")
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.errorLbl = QtWidgets.QLabel(self.centralwidget)
-        self.errorLbl.setGeometry(QtCore.QRect(320, 330, 47, 13))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.errorLbl.setFont(font)
-        self.errorLbl.setStyleSheet("color: rgb(255, 0, 0);")
-        self.errorLbl.setText("")
-        self.errorLbl.setObjectName("errorLbl")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(210, 50, 361, 31))
-        font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(20)
-        self.label.setFont(font)
-        self.label.setMouseTracking(True)
-        self.label.setStyleSheet("color: blue;")
-        self.label.setMidLineWidth(1)
-        self.label.setObjectName("label")
-        #self.label.setVisible()
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 794, 26))
-        self.menubar.setObjectName("menubar")
-        self.menuChange_Your_Schedule = QtWidgets.QMenu(self.menubar)
-        self.menuChange_Your_Schedule.setObjectName("menuChange_Your_Schedule")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.menubar.addAction(self.menuChange_Your_Schedule.menuAction())
+        def setupUi_2(self, MainWindow):
+                # Reuse initial flags and negate the flag you want to unset
+                # Negate the Maximize button
+                MainWindow.setWindowFlags(MainWindow.windowFlags() & ~QtCore.Qt.WindowMaximizeButtonHint)
+                MainWindow.setObjectName("MainWindow")
+                MainWindow.resize(794, 601)
+                self.centralwidget = QtWidgets.QWidget(MainWindow)
+                self.centralwidget.setObjectName("centralwidget")
+                self.courseCodeLbl = QtWidgets.QLabel(self.centralwidget)
+                self.courseCodeLbl.setGeometry(QtCore.QRect(240, 140, 101, 21))
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                font.setBold(True)
+                font.setWeight(75)
+                self.courseCodeLbl.setFont(font)
+                self.courseCodeLbl.setObjectName("courseCodeLbl")
+                self.changeCourseBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.changeCourseBtn.setGeometry(QtCore.QRect(390, 310, 75, 35))
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                font.setBold(True)
+                font.setWeight(75)
+                self.changeCourseBtn.setFont(font)
+                self.changeCourseBtn.setStyleSheet("border-radius: 10;\n"
+                "background-color: rgb(95, 91, 85);\n"
+                "border: 1px solid black;\n"
+                "color: white;")
+                self.changeCourseBtn.setObjectName("changeCourseBtn")
+                self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+                self.lineEdit.setGeometry(QtCore.QRect(360, 130, 141, 31))
+                self.lineEdit.setStyleSheet("border: 1px solid black;")
+                self.lineEdit.setObjectName("lineEdit")
+                self.blueBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.blueBtn.setGeometry(QtCore.QRect(130, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setFamily("MS Shell Dlg 2")
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setItalic(False)
+                font.setWeight(9)
+                self.blueBtn.setFont(font)
+                self.blueBtn.setStyleSheet("border-radius: 10px;\n"
+                "font: 75 8pt \"MS Shell Dlg 2\";\n"
+                "background-color: rgb(153, 210, 242);\n"
+                "border: 1px solid black;")
+                self.blueBtn.setAutoRepeatDelay(300)
+                self.blueBtn.setAutoRepeatInterval(100)
+                self.blueBtn.setFlat(False)
+                self.blueBtn.setObjectName("blueBtn")
+                self.pinkBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.pinkBtn.setGeometry(QtCore.QRect(220, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setWeight(50)
+                self.pinkBtn.setFont(font)
+                self.pinkBtn.setStyleSheet("border-radius: 10px;\n"
+                "background-color: rgb(249, 210, 222);\n"
+                "border: 1px solid black;")
+                self.pinkBtn.setAutoRepeatDelay(300)
+                self.pinkBtn.setAutoRepeatInterval(100)
+                self.pinkBtn.setFlat(False)
+                self.pinkBtn.setObjectName("pinkBtn")
+                self.violetBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.violetBtn.setGeometry(QtCore.QRect(400, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setWeight(50)
+                self.violetBtn.setFont(font)
+                self.violetBtn.setStyleSheet("border-radius: 10px;\n"
+                "background-color: rgb(179, 145, 181);\n"
+                "border: 1px solid black;")
+                self.violetBtn.setAutoRepeatDelay(300)
+                self.violetBtn.setAutoRepeatInterval(100)
+                self.violetBtn.setFlat(False)
+                self.violetBtn.setObjectName("violetBtn")
+                self.yellowBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.yellowBtn.setGeometry(QtCore.QRect(310, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setWeight(50)
+                self.yellowBtn.setFont(font)
+                self.yellowBtn.setStyleSheet("border-radius: 10px;\n"
+                "background-color: rgb(255, 219, 169);\n"
+                "border: 1px solid black;")
+                self.yellowBtn.setAutoRepeatDelay(300)
+                self.yellowBtn.setAutoRepeatInterval(100)
+                self.yellowBtn.setFlat(False)
+                self.yellowBtn.setObjectName("yellowBtn")
+                self.takenBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.takenBtn.setGeometry(QtCore.QRect(580, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setWeight(50)
+                self.takenBtn.setFont(font)
+                self.takenBtn.setStyleSheet("border-radius: 10px;\n"
+                "background-color: rgb(211,211,211);\n"
+                "border: 1px solid black;")
+                self.takenBtn.setAutoRepeatDelay(300)
+                self.takenBtn.setAutoRepeatInterval(100)
+                self.takenBtn.setFlat(False)
+                self.takenBtn.setObjectName("takenBtn")
+                self.cnotcBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.cnotcBtn.setGeometry(QtCore.QRect(490, 390, 70, 70))
+                font = QtGui.QFont()
+                font.setPointSize(8)
+                font.setBold(False)
+                font.setWeight(50)
+                self.cnotcBtn.setFont(font)
+                self.cnotcBtn.setStyleSheet("border-radius: 10px;\n"
+                "border: 3px solid blue;")
+                self.cnotcBtn.setAutoRepeatDelay(300)
+                self.cnotcBtn.setAutoRepeatInterval(100)
+                self.cnotcBtn.setFlat(False)
+                self.cnotcBtn.setObjectName("cnotcBtn")
+                self.courseIDLbl = QtWidgets.QLabel(self.centralwidget)
+                self.courseIDLbl.setGeometry(QtCore.QRect(250, 200, 81, 21))
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                font.setBold(True)
+                font.setWeight(75)
+                self.courseIDLbl.setFont(font)
+                self.courseIDLbl.setObjectName("courseIDLbl")
+                self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+                self.lineEdit_2.setGeometry(QtCore.QRect(360, 190, 141, 31))
+                self.lineEdit_2.setStyleSheet("border: 1px solid black;")
+                self.lineEdit_2.setObjectName("lineEdit_2")
+                self.numberOfCreditsLbl = QtWidgets.QLabel(self.centralwidget)
+                self.numberOfCreditsLbl.setGeometry(QtCore.QRect(250, 260, 81, 21))
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                font.setBold(True)
+                font.setWeight(75)
+                self.numberOfCreditsLbl.setFont(font)
+                self.numberOfCreditsLbl.setObjectName("numberOfCreditsLbl")
+                self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+                self.lineEdit_3.setGeometry(QtCore.QRect(360, 250, 141, 31))
+                self.lineEdit_3.setStyleSheet("border: 1px solid black;")
+                self.lineEdit_3.setObjectName("lineEdit_3")
+                self.errorLbl = QtWidgets.QLabel(self.centralwidget)
+                self.errorLbl.setGeometry(QtCore.QRect(320, 330, 47, 13))
+                font = QtGui.QFont()
+                font.setPointSize(9)
+                self.errorLbl.setFont(font)
+                self.errorLbl.setStyleSheet("color: rgb(255, 0, 0);")
+                self.errorLbl.setText("")
+                self.errorLbl.setObjectName("errorLbl")
+                self.label = QtWidgets.QLabel(self.centralwidget)
+                self.label.setGeometry(QtCore.QRect(210, 50, 361, 31))
+                font = QtGui.QFont()
+                font.setFamily("Times New Roman")
+                font.setPointSize(20)
+                self.label.setFont(font)
+                self.label.setMouseTracking(True)
+                self.label.setStyleSheet("color: blue;")
+                self.label.setMidLineWidth(1)
+                self.label.setObjectName("label")
+                #self.label.setVisible()
+                MainWindow.setCentralWidget(self.centralwidget)
+                self.menubar = QtWidgets.QMenuBar(MainWindow)
+                self.menubar.setGeometry(QtCore.QRect(0, 0, 794, 26))
+                self.menubar.setObjectName("menubar")
+                self.menuChange_Your_Schedule = QtWidgets.QMenu(self.menubar)
+                self.menuChange_Your_Schedule.setObjectName("menuChange_Your_Schedule")
+                MainWindow.setMenuBar(self.menubar)
+                self.statusbar = QtWidgets.QStatusBar(MainWindow)
+                self.statusbar.setObjectName("statusbar")
+                MainWindow.setStatusBar(self.statusbar)
+                self.menubar.addAction(self.menuChange_Your_Schedule.menuAction())
 
-        """
+                """
                 ADD CODE BELOW THIS COMMENT SECTION
                 ADD CODE BELOW THIS COMMENT SECTION
                 ADD CODE BELOW THIS COMMENT SECTION
                 ADD CODE BELOW THIS COMMENT SECTION
-        """
+                """
 
-        self.changeCourseBtn.clicked.connect(self.changeCourse)
+                self.changeCourseBtn.clicked.connect(self.changeCourse)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+                self.retranslateUi(MainWindow)
+                QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    """ self.blueBtn.clicked.connect(self.changeCourse)
-        self.pinkBtn.clicked.connect(self.changeCourse)
-        self.yellowBtn.clicked.connect(self.changeCourse)
-        self.violetBtn.clicked.connect(self.changeCourse)
-        self.cnotcBtn.clicked.connect(self.changeCourse)
-        self.takenBtn.clicked.connect(self.changeCourse)
-    """
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Change Course"))
-        self.courseCodeLbl.setText(_translate("MainWindow", "Course Code"))
-        self.changeCourseBtn.setText(_translate("MainWindow", "Change"))
-        self.blueBtn.setText(_translate("MainWindow", "Core\n"
-"(In\n"
-" Major)"))
-        self.pinkBtn.setText(_translate("MainWindow", "Gen.\n"
-"Ed."))
-        self.violetBtn.setText(_translate("MainWindow", "Major &\n"
-"Gen.\n"
-" Ed."))
-        self.yellowBtn.setText(_translate("MainWindow", "Elective"))
-        self.takenBtn.setText(_translate("MainWindow", "Taken"))
-        self.cnotcBtn.setText(_translate("MainWindow", "C or\n"
-"Better \n"
-"Required"))
-        self.courseIDLbl.setText(_translate("MainWindow", "Course ID"))
-        self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
-        self.label.setText(_translate("MainWindow", "Update Course Information"))
-        #self.menuChange_Your_Schedule.setTitle(_translate("MainWindow", "Change Your Schedule"))
+                """ self.blueBtn.clicked.connect(self.changeCourse)
+                self.pinkBtn.clicked.connect(self.changeCourse)
+                self.yellowBtn.clicked.connect(self.changeCourse)
+                self.violetBtn.clicked.connect(self.changeCourse)
+                self.cnotcBtn.clicked.connect(self.changeCourse)
+                self.takenBtn.clicked.connect(self.changeCourse)
+                """
+        def retranslateUi(self, MainWindow):
+                _translate = QtCore.QCoreApplication.translate
+                MainWindow.setWindowTitle(_translate("MainWindow", "Change Course"))
+                self.courseCodeLbl.setText(_translate("MainWindow", "Course Code"))
+                self.changeCourseBtn.setText(_translate("MainWindow", "Change"))
+                self.blueBtn.setText(_translate("MainWindow", "Core\n"
+                "(In\n"
+                " Major)"))
+                self.pinkBtn.setText(_translate("MainWindow", "Gen.\n"
+                "Ed."))
+                self.violetBtn.setText(_translate("MainWindow", "Major &\n"
+                "Gen.\n"
+                " Ed."))
+                self.yellowBtn.setText(_translate("MainWindow", "Elective"))
+                self.takenBtn.setText(_translate("MainWindow", "Taken"))
+                self.cnotcBtn.setText(_translate("MainWindow", "C or\n"
+                "Better \n"
+                "Required"))
+                self.courseIDLbl.setText(_translate("MainWindow", "Course ID"))
+                self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
+                self.label.setText(_translate("MainWindow", "Update Course Information"))
+                #self.menuChange_Your_Schedule.setTitle(_translate("MainWindow", "Change Your Schedule")
 
-    def buttonClick(self, button):
-        text = self.changeCouse()
-        self.button.setText(text)
-        print(text, button.title(), end= "  ")
+#Needs Comments
+        def changeCourse(self):
+                self.errorLbl.clear()
+                courseCode = self.lineEdit.text()
+                courseID = self.lineEdit_2.text()
+                numberOfCredits = self.lineEdit_3.text()
 
-    #Needs Comments
-    def changeCourse(self):
-        self.errorLbl.clear()
-        courseCode = self.lineEdit.text()
-        courseID = self.lineEdit_2.text()
-        numberOfCredits = self.lineEdit_3.text()
+                courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
+                courseIDRegex = re.search("^\s*[0-9]{3}\s*$", courseID)
+                numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
 
-        courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
-        courseIDRegex = re.search("^\s*[0-9]{3}\s*$", courseID)
-        numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
+                if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
+                        self.errorLbl.setText("Error")
+                else:
+                        f = open('CourseInfo.txt', 'r')
+                        w = open('UpdatedCourseInfo.txt', 'w')
 
-        if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
-            self.errorLbl.setText("Error")
-        else:
-            f = open('CourseInfo.txt', 'r')
-            w = open('UpdatedCourseInfo.txt', 'w')
+                        courseCodeFinal = courseCode
+                        courseIDFinal = courseID.replace(" ", ", ")
+                        numberOfCreditsFinal = numberOfCredits.replace(" ", ", ")
+                        myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
+                        line = ", ".join(myline)
+                        print(line)
 
-            courseCodeFinal = courseCode
-            courseIDFinal = courseID.replace(" ", ", ")
-            numberOfCreditsFinal = numberOfCredits.replace(" ", ", ")
-            myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
-            line = ", ".join(myline)
-            print(line)
+                        data = f.readlines()
+                        data[0] = f"{line} \n"
+                        w.writelines(data)
 
-            data = f.readlines()
-            data[0] = f"{line} \n"
-            w.writelines(data)
+                        f.close()
+                        w.close()
 
-            f.close()
-            w.close()
-
-            #return line
-    """
-            ADD CODE aBOVE THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-            ADD CODE BELOW THIS COMMENT SECTION
-    """
+                        #return line
+                """
+                    ADD CODE aBOVE THIS COMMENT SECTION
+                    ADD CODE BELOW THIS COMMENT SECTION
+                    ADD CODE BELOW THIS COMMENT SECTION
+                    ADD CODE BELOW THIS COMMENT SECTION
+                """
 
 class Ui_MainWindow(object):
         def openWindow(self):
@@ -288,6 +285,10 @@ class Ui_MainWindow(object):
 
 
         def setupUi(self, MainWindow):
+                #Reuse initial flags and negate the flag you want to unset
+                #Negate the Maximize button
+                MainWindow.setWindowFlags(MainWindow.windowFlags() & ~QtCore.Qt.WindowMaximizeButtonHint)
+
                 MainWindow.setObjectName("MainWindow")
                 MainWindow.resize(1201, 950)
                 font = QtGui.QFont()
@@ -785,7 +786,7 @@ class Ui_MainWindow(object):
                 font.setPointSize(10)
                 self.inputBox.setFont(font)
                 self.inputBox.setObjectName("inputBox")
-                self.enterBtn = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.addName())
+                self.enterBtn = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.addUser())
                 self.enterBtn.setGeometry(QtCore.QRect(630, 50, 71, 31))
                 font = QtGui.QFont()
                 font.setFamily("MS Shell Dlg 2")
@@ -914,6 +915,7 @@ class Ui_MainWindow(object):
                 self.pushButton.clicked.connect(self.onBtn1ClickedAgain)
         #TBD
         def onBtn1ClickedAgain(self):
+                #self.pushButton.click()
                 f = open('UpdatedCourseInfo.txt', 'r')
                 data = f.readlines()
                 self.pushButton.clicked.disconnect()
@@ -1056,20 +1058,16 @@ class Ui_MainWindow(object):
                         if counter == len(arrayButton) or counter == len(data):
                             break
                         else:
-                                line = i[0] + "\n" + i[1] + "\n" + i[2] + " credit/s"
+                                line = i[0] + "\n" + i[1] + "\n" + i[2] + " credit(s)"
                                 #print("Counter", counter, end="\n")
 
                                 arrayButton[counter].setText(translator("MainWindow", line))
 
-                                #If there is a color in the text file, - if statement to not crash
-                                if i[3] != " ":
-                                        # If there is is a frame for "C or better grade"
-                                        if i[4] == "C":
-                                                Ui_MainWindow.updateColor(i[3], "C", arrayButton[counter])
-                                        else:
-                                                Ui_MainWindow.updateColor(i[3], " ", arrayButton[counter])
+                                # If there is is a frame for "C or better grade"
+                                if i[4] == "C":
+                                        Ui_MainWindow.updateColor(i[3], "C", arrayButton[counter])
                                 else:
-                                        print("Skip line")
+                                        Ui_MainWindow.updateColor(i[3], "NotC", arrayButton[counter])
                         counter = counter + 1
 
         # Upload button calls getOpenFileName() to retrieve the file path
@@ -1095,19 +1093,20 @@ class Ui_MainWindow(object):
         # TBD
         # There is a label in the bottom of the Main window that will display
         # A congratulations message if the user has selected all buttons as taken
-        def congratulationsMsg(self):
-                self.congratulationsLbl.setText("Congratulations!!!")
+        def congratulations(self):
+                self.congratulationsLbl.setText("Number of credits compleated: 3!!!")
                 print()
 
         # TBD
         # The method adds the name of the user to the text file
         # Planing to save the username as the last line of the text file
         # In case the upload button is called it needs to display (setVisible)
-        def addName(self):
+        def addUser(self):
                 name = self.inputBox.text()
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
-                self.congratulationsLbl.setText("Congratulations!!!")
+                self.congratulations()
+                #self.congratulationsLbl.setText("Congratulations!!!")
                 print(name)
                 return name
 
@@ -1143,6 +1142,7 @@ class Ui_MainWindow(object):
                                     self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38,
                                     self.pushButton_39, self.pushButton_40]
 
+
                 newPath = newPath if newPath else "CourseInfo.txt"
                 self.fileName = newPath
                 Ui_MainWindow.populate(self, arrayButton=self.buttonArray, path = newPath, translator=_translate)
@@ -1170,7 +1170,6 @@ class Ui_MainWindow(object):
 
 # Main method that instantiate the class and calls the methods accordingly
 if __name__ == "__main__":
-        import sys
         app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
         ui = Ui_MainWindow()
