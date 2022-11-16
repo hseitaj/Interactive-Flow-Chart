@@ -1,0 +1,28 @@
+HHHHH, 200, 1, pink, NotC
+Crimj, 100, 3, blue, C
+HHHHH, 200, 1, green, NotC
+Crimj, 100, 3, blue, C
+HHHHH, 200, 1, grey, NotC
+Test, 33300, 1, ,
+CourseName, CourseID, CourseCredit, ,
+PHIL-BA-CRIMJ, 103-243-465, 3-4, blue, NotC
+
+PHIL-BA-CRIMJ, 103-243-465, 3-4, blue, NotC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
