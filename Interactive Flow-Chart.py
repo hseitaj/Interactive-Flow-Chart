@@ -2,9 +2,9 @@
 
 # Interactive Flow Chart for CRIMJ 2022, Penn State Abington
 
-# All right reserved to Penn State Abington.
+# All right reserved to Penn State Abington and collaborators.
 
-# Date: 11/03/2022
+# Date: 11/18/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
