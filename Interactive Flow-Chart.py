@@ -683,7 +683,6 @@ class Ui_MainWindow(object):
                 data = []
                 try:
                         myFile = open(fileName, "r")
-
                         for line in myFile:
                                 # Strip the whitespaces
                                 text = line.strip()
@@ -708,25 +707,6 @@ class Ui_MainWindow(object):
                 finally:
                         myFile.close()
                 return data
-
-
-        # TBD
-        def saveFile(self, readFile, writeFile):
-                ReadFile = open(readFile, "r")
-                WriteFile = open(writeFile, "w")
-                counter = 0
-                for button in buttonArray:
-                        if button.isChecked():
-                                updated_class = str(input())
-                                updated = updated_class.replace(' ', ', ')
-                                WriteFile.write(updated)
-
-                        else:
-                                print('Not pushed', counter)
-                                WriteFile.write(ReadFile.readline())
-                        counter += 1
-                ReadFile.close()
-                WriteFile.close()
 
         # Function that accepts the color and the frame of the button
         # And the button in which updates the color
@@ -783,13 +763,10 @@ class Ui_MainWindow(object):
         # to the main Window interface and populates the button titles,
         # colors, frames.
         def populate(self, arrayButton, path, translator):
-
                 data = Ui_MainWindow.processFile(self, path)
-                print("Filename entered: {}".format(path))
-                #print(data)
+                #print("Filename entered: {}".format(path))
 
                 counter = 0
-
                 # In case the text file does not have enough (40 lines of information)
                 # Display whatever the file information has and empty the rest of the buttons
                 for i in arrayButton:
@@ -798,7 +775,6 @@ class Ui_MainWindow(object):
                                              "background-color: rgb(211, 211, 211);\n"
                                              "border: 1px solid black;")
                         counter = counter + 1
-
                 counter = 0
                 # Populate the buttons with the information of the text file
                 # Note: expectation is that the text file has at least 40 lines
@@ -849,13 +825,13 @@ class Ui_MainWindow(object):
         # The method adds the name of the user to the text file
         # Planing to save the username as the last line of the text file
         # In case the upload button is called it needs to display (setVisible)
-        def addUser(self):
+        def addUser1(self):
                 global name
                 global splitname
                 name = self.inputBox.text()
                 splitname = name.split()
                 print("Splitname {}".format(splitname))
-                print(len(splitname))
+                #print(len(splitname))
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
                 #self.congratulations()
@@ -867,6 +843,37 @@ class Ui_MainWindow(object):
                         else:
                                 with open('UpdatedCourseInfo.txt', 'a') as f:
                                         f.write(f'\n{splitname[0]}, 0, 0, None, None')
+                                f.close()
+                print(name)
+                return name
+
+        def addUser(self):
+                global name
+                global splitname
+                name = self.inputBox.text()
+                splitname = name.split()
+                #print("Splitname {}".format(splitname))
+                #print(len(splitname))
+                self.usernameLbl.setText(name)
+                self.inputBox.clear()
+                # self.congratulations()
+                if name != "":
+                        filename = name + ".txt"
+                        if len(splitname) == 2:
+                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                        data1 = f.readlines()
+                                data1[40] = [f'{splitname[0]}, {splitname[1]}, 0, None, None']
+                                with open(filename, 'w', encoding='utf-8') as f:
+                                        for lines in data1:
+                                                f.writelines(lines)
+                                f.close()
+                        else:
+                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                        data1 = f.readlines()
+                                data1[40] = [f'{splitname[0]}, 0, 0, None, None']
+                                with open(filename, 'w', encoding='utf-8') as f:
+                                        for lines in data1:
+                                                f.writelines(lines)
                                 f.close()
                 print(name)
                 return name
@@ -890,7 +897,7 @@ class Ui_MainWindow(object):
                 path = path if path else "UpdatedCourseInfo.txt"
                 data = self.processFile(path)
                 self.congratulationsLbl.clear()
-                print(data)
+                #print(data)
 
                 x = 0
                 numberOfCredits = 0
@@ -904,7 +911,7 @@ class Ui_MainWindow(object):
                         #print(totalNumberOfCredits)
                         totalNumberOfCredits += int(i[2])
 
-                print(additionalCredits)
+                #print(additionalCredits)
                 numberOfCredits += additionalCredits
 
                 labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
@@ -1344,7 +1351,7 @@ class Ui_SecondWindow(object):
         def UpdateColorTaken(self):
                 line = self.changeCourse()
 
-                if line == None:
+                if line == None or line == "":
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
@@ -1389,7 +1396,7 @@ class Ui_SecondWindow(object):
                 return new_line
 
 
-        def UpdateCNotC(self):
+        def UpdateCNotCOld(self):
                 f = open('UpdatedCourseInfo.txt', 'r')
                 lines = f.readlines()
                 f.close()
@@ -1496,6 +1503,214 @@ class Ui_SecondWindow(object):
                 else:
                         print("Clasname is not empty: {}".format(className))
 
+        def UpdateCNotC(self):
+                f = open('UpdatedCourseInfo.txt', 'r')
+                lines = f.readlines()
+                f.close()
+                color = ''
+                global classColor
+                print(buttonArray[buttonIndex].styleSheet())
+                # print("Classname {}".format(className))
+                if className == '':
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
+                                                                     "background-color: rgb(153, 210, 242);\n"
+                                                                     "border: 1px solid black;"):
+                                classColor = "background-color: rgb(153, 210, 242);\n"
+                                color = 'blue'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(153, 210, 242);\n"
+                                                                       "border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(249, 210, 222);\n"
+                                color = 'pink'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(255, 219, 169);\n"
+                                color = 'yellow'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(179, 145, 181);\n"
+                                color = 'purple'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 3px solid blue;")
+
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(211, 211, 211);\n"
+                                color = 'grey'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 3px solid blue;")
+
+                        ##################################### New Code
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(153, 210, 242);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(153, 210, 242);\n"
+                                color = 'blue'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(153, 210, 242);\n"
+                                                                       "border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(249, 210, 222);\n"
+                                color = 'pink'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(255, 219, 169);\n"
+                                color = 'yellow'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(179, 145, 181);\n"
+                                color = 'purple'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 1px solid black;")
+
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(211, 211, 211);\n"
+                                color = 'grey'
+                                buttonArray[buttonIndex].setStyleSheet("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 1px solid black;")
+
+                        # print('Color found {}'.format(color))
+                        current_line = (buttonArray[buttonIndex].text())
+                        # print('Current Line:', current_line)
+                        words = current_line.split()
+                        words.pop()
+                        words.append(color)
+                        words.append('C')
+                        new_line = ', '.join(words)
+                        updated_line = new_line
+                        # print('Updated Line: ', updated_line)
+                        # lines[buttonIndex] = f"{updated_line}\n"
+
+                else:
+                        updated_line = className + 'C'
+                        lines[buttonIndex] = f"{updated_line}\n"
+                        print(updated_line)
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
+                                                                     "background-color: rgb(153, 210, 242);\n"
+                                                                     "border: 1px solid black;"):
+                                classColor = "background-color: rgb(153, 210, 242);\n"
+                                color = 'blue'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
+                                                                       "background-color: rgb(153, 210, 242);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(153, 210, 242);\n"
+                                color = 'blue'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(249, 210, 222);\n"
+                                color = 'pink'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(249, 210, 222);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(249, 210, 222);\n"
+                                color = 'pink'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(255, 219, 169);\n"
+                                color = 'yellow'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # yellow
+                                                                       "background-color: rgb(255, 219, 169);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(255, 219, 169);\n"
+                                color = 'yellow'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(179, 145, 181);\n"
+                                color = 'purple'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # purple
+                                                                       "background-color: rgb(179, 145, 181);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(179, 145, 181);\n"
+                                color = 'purple'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 1px solid black;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 1px solid black;"):
+                                classColor = "background-color: rgb(211, 211, 211);\n"
+                                color = 'grey'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
+
+                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                       "background-color: rgb(211, 211, 211);\n"
+                                                                       "border: 3px solid blue;"):
+                                classColor = "background-color: rgb(211, 211, 211);\n"
+                                color = 'grey'
+                                buttonArray[buttonIndex].setStyleSheet(
+                                        f"border-radius: 10px;\n{classColor}border: 1px solid black;")
+
+                w = open('UpdatedCourseInfo.txt', 'w')
+                for x in lines:
+                        w.write(x)
+                w.close()
+
+                # self.cnotcBtn.clicked.disconnect()
+                # self.cnotcBtn.clicked.connect(self.UpdateCNotCAgain)
+
+                # buttonArray[buttonIndex].setStyleSheet(f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
 
         def UpdateCNotCAgain(self):
                 f = open('UpdatedCourseInfo.txt', 'r')
@@ -1582,7 +1797,7 @@ class Ui_SecondWindow(object):
                 numberOfCredits = self.lineEdit_3.text()
 
                 courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
-                courseIDRegex = re.search("^\s*[0-9]{3}\s*$", courseID)
+                courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID) #(?:\'w'\'W')?
                 numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
@@ -1594,16 +1809,30 @@ class Ui_SecondWindow(object):
                         myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
                         line = ", ".join(myline)
 
+                        f = open('UpdatedCourseInfo.txt', 'r')
+                        lines = f.readlines()
+                        f.close()
+
+                        textFileLine = lines[buttonIndex]
+                        x = ''.join(textFileLine)
+                        x = textFileLine.split()
+                        x = ''.join(x)
+                        y = x.split(',')
+
+                        colorNframe = str(y[3] + ", " + y[4])
+
+                        line = line + ", " + colorNframe
+
+                        lines[buttonIndex] = f"{line}\n"
+
+                        w = open('UpdatedCourseInfo.txt', 'w')
+                        for x in lines:
+                                w.write(x)
+                        w.close()
+
                         buttonArray[buttonIndex].setText(f"{courseCodeFinal} \n {courseIDFinal} \n {numberOfCreditsFinal} credits")
 
-
                         return line
-                """
-                    ADD CODE aBOVE THIS COMMENT SECTION
-                    ADD CODE BELOW THIS COMMENT SECTION
-                    ADD CODE BELOW THIS COMMENT SECTION
-                    ADD CODE BELOW THIS COMMENT SECTION
-                """
 
 # Main method that instantiate the class and calls the methods accordingly
 if __name__ == "__main__":
