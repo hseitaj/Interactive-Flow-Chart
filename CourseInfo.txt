@@ -8,11 +8,11 @@ GQ, 2, 3, pink, NotC
 CRIMJ-SOC, 12, 3, blue, NotC
 CRIMJ, 210-220-230, 3, blue, NotC
 GA/GS/GH/GN, 4, 3, pink, NotC
-PHIL-BA-CRIMJ, 103-243-465, 3-4, blue, NotC
+PHIL-BA-CRIMJ, 103-243-465, 3, blue, NotC
 Elective, 8, 3, grey, C
 STAT-PSYCH, 200, 4, purple, NotC
 ENGL, 202, 3, pink, NotC
-SOC-CRIMJ, 119N-451, 3-4, blue, NotC
+SOC-CRIMJ, 119N-451, 3, blue, NotC
 GA/GS/GH/GN, 5, 3, pink, NotC
 CRIMJ, 210-220-230, 3, blue, NotC
 GA/GS/GH/GN, 6, 3, pink, NotC
