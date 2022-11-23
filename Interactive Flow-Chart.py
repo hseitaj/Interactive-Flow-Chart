@@ -16,6 +16,7 @@ buttonArray = []
 classColor = ''
 className = ''
 additionalCredits = 0
+name = ""
 
 class Ui_MainWindow(object):
         def openWindow(self):
@@ -799,6 +800,7 @@ class Ui_MainWindow(object):
         def uploadButton_handler(self):
                 path = self.getOpenFileName()
                 self.retranslateUi(MainWindow, newPath=path)
+                #self.usernameLbl.setText(name)
 
         # Uses QFileDialog to get a file name form the directory
         # Restricted to Text files and All files only
@@ -825,44 +827,31 @@ class Ui_MainWindow(object):
         # The method adds the name of the user to the text file
         # Planing to save the username as the last line of the text file
         # In case the upload button is called it needs to display (setVisible)
-        def addUser1(self):
-                global name
-                global splitname
-                name = self.inputBox.text()
-                splitname = name.split()
-                print("Splitname {}".format(splitname))
-                #print(len(splitname))
-                self.usernameLbl.setText(name)
-                self.inputBox.clear()
-                #self.congratulations()
-                if name != "":
-                        if len(splitname) == 2:
-                                with open('UpdatedCourseInfo.txt', 'a') as f:
-                                        f.write(f'\n{splitname[0]}, {splitname[1]}, 0, None, None')
-                                f.close()
-                        else:
-                                with open('UpdatedCourseInfo.txt', 'a') as f:
-                                        f.write(f'\n{splitname[0]}, 0, 0, None, None')
-                                f.close()
-                print(name)
-                return name
-
         def addUser(self):
                 global name
                 global splitname
                 name = self.inputBox.text()
                 splitname = name.split()
-                #print("Splitname {}".format(splitname))
-                #print(len(splitname))
+
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
-                # self.congratulations()
+
                 if name != "":
                         filename = name + ".txt"
                         if len(splitname) == 2:
                                 with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
                                         data1 = f.readlines()
-                                data1[40] = [f'{splitname[0]}, {splitname[1]}, 0, None, None']
+
+                                data1[40] = [f'{splitname[0]} {splitname[1]},0, 0, None, None']
+                                with open(filename, 'w', encoding='utf-8') as f:
+                                        for lines in data1:
+                                                f.writelines(lines)
+                                f.close()
+                        elif len(splitname) == 3:
+                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                        data1 = f.readlines()
+
+                                data1[40] = [f'{splitname[0]} {splitname[1]}, {splitname[2]},0, None, None']
                                 with open(filename, 'w', encoding='utf-8') as f:
                                         for lines in data1:
                                                 f.writelines(lines)
@@ -870,28 +859,14 @@ class Ui_MainWindow(object):
                         else:
                                 with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
                                         data1 = f.readlines()
-                                data1[40] = [f'{splitname[0]}, 0, 0, None, None']
+                                data1[40] = [f'{splitname[0]},0, 0, None, None']
                                 with open(filename, 'w', encoding='utf-8') as f:
                                         for lines in data1:
                                                 f.writelines(lines)
                                 f.close()
+                else:
+                        self.usernameLbl.setText("Please Try Again!")
                 print(name)
-                return name
-
-        def addUserOld(self):
-                name = self.inputBox.text()
-                self.usernameLbl.setText(name)
-                self.inputBox.clear()
-                #self.congratulations(path="CourseInfo.txt")
-                #self.congratulationsLbl.setText("Congratulations!!!")
-                print(name)
-                return name
-        """
-                ADD CODE ABOVE THIS COMMENT SECTION
-                ADD CODE ABOVE THIS COMMENT SECTION
-                ADD CODE ABOVE THIS COMMENT SECTION
-                ADD CODE ABOVE THIS COMMENT SECTION
-        """
 
         def congratulations(self, path):
                 path = path if path else "UpdatedCourseInfo.txt"
@@ -916,8 +891,6 @@ class Ui_MainWindow(object):
 
                 labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
                 if additionalCredits:
-                        #s.enter(60, 1, self.congratulations("UpdatedCourseInfo.txt"), (s,))
-                        #s.run()
                         self.congratulationsLbl.clear()
                         self.congratulationsLbl.setText(labelText)
                 else:
@@ -960,6 +933,23 @@ class Ui_MainWindow(object):
                 s = sched.scheduler(time.time, time.sleep)
                 s.enter(6, 1, self.congratulations(newPath), (s,))
                 s.run()"""
+
+                #Update the username on the version
+                with open(newPath, 'r', encoding='utf-8') as f:
+                        data2 = f.readlines()
+                userLine = data2[40]
+                nameAray = ''.join(userLine)
+                nameAray = ''.join(nameAray)
+                y = nameAray.split(',')
+                lastname = y[1]
+
+                if lastname == '0':
+                        name = y[0]
+                else:
+                        name = y[0] + y[1]
+                f.close()
+
+                self.usernameLbl.setText(name)
                 self.congratulations(newPath)
                 self.fileName = newPath
 
@@ -981,7 +971,7 @@ class Ui_MainWindow(object):
                 self.pushButton_47.setText(_translate("MainWindow", "Major &\n"
                 "Gen.\n"
                 " Ed."))
-                self.enterBtn.setText(_translate("MainWindow", "Enter"))
+                self.enterBtn.setText(_translate("MainWindow", "Save"))
                 self.nameLbl.setText(_translate("MainWindow", "Name:"))
                 self.uploadButton.setText(_translate("MainWindow", "Upload"))
                 #self.menuTBd.setTitle(_translate("MainWindow", "Interactive FlowChart"))
@@ -1509,7 +1499,7 @@ class Ui_SecondWindow(object):
                 f.close()
                 color = ''
                 global classColor
-                print(buttonArray[buttonIndex].styleSheet())
+                #print(buttonArray[buttonIndex].styleSheet())
                 # print("Classname {}".format(className))
                 if className == '':
                         if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
