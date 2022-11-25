@@ -38,4 +38,4 @@ Elective, 13, 3, yellow, NotC
 Elective, 14, 3, grey, NotC
 CRIMJ, 400, 3, blue, NotC
 Elective, 15, 3, grey, NotC
-Ben Gorge, , , ,
+First Last,0, 0, None, None
