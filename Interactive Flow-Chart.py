@@ -2,38 +2,38 @@
 
 # Interactive Flow Chart for CRIMJ 2022, Penn State Abington
 
-# All right reserved to Penn State Abington.
+# Please do not change the code - every part is crucial to not be dealing with errors.
+# Feel free to reach the collaborators with your questions.
 
-# Date: 11/03/2022
+# All right reserved to Penn State Abington and collaborators.
+
+# Date: 11/27/2022
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 import sys
 import re
+import os
 
+# Global Variables
 buttonIndex = 0
 buttonArray = []
 classColor = ''
 className = ''
 additionalCredits = 0
 name = ""
+fileName = ""
 
+# The main User Interface Window
 class Ui_MainWindow(object):
+        # Will generate the second user interface
         def openWindow(self):
                 self.window = QtWidgets.QMainWindow()
                 self.ui = Ui_SecondWindow()
                 self.ui.setupUi_2(self.window)
                 self.window.show()
 
-        def toggle_window(self, window):
-                if window.isVisible():
-                    window.hide()
-                    print("tog if")
-                else:
-                    window.show()
-                    print("tog else")
-
-
+        # Generate the structure of the main window
         def setupUi(self, MainWindow):
                 #Reuse initial flags and negate the flag you want to unset
                 #Negate the Maximize button
@@ -57,11 +57,8 @@ class Ui_MainWindow(object):
                 self.label.setMidLineWidth(1)
                 self.label.setObjectName("label")
 
-                self.fileName = ""
-                # TBD
                 self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.buttonClickedWindow())
 
-                #self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked= lambda: self.openWindow())
                 self.pushButton.setGeometry(QtCore.QRect(20, 180, 121, 91))
                 self.pushButton.setStyleSheet("background-color: blue;\n"
                 "color: white;\n"
@@ -426,7 +423,7 @@ class Ui_MainWindow(object):
                 self.pushButton_42.setFlat(False)
                 self.pushButton_42.setObjectName("pushButton_42")
                 self.label_11 = QtWidgets.QLabel(self.centralwidget)
-                self.label_11.setGeometry(QtCore.QRect(750, 730, 311, 16))  #750, 730, 311, 16
+                self.label_11.setGeometry(QtCore.QRect(750, 730, 311, 16))
                 self.label_11.setObjectName("label_11")
                 self.pushButton_43 = QtWidgets.QPushButton(self.centralwidget)
                 self.pushButton_43.setGeometry(QtCore.QRect(530, 720, 70, 70))
@@ -470,10 +467,10 @@ class Ui_MainWindow(object):
                 self.pushButton_45.setFlat(False)
                 self.pushButton_45.setObjectName("pushButton_45")
                 self.label_12 = QtWidgets.QLabel(self.centralwidget)
-                self.label_12.setGeometry(QtCore.QRect(720, 760, 386, 16)) #740, 760, 341, 20
+                self.label_12.setGeometry(QtCore.QRect(720, 760, 386, 16))
                 self.label_12.setObjectName("label_12")
                 self.label_10 = QtWidgets.QLabel(self.centralwidget)
-                self.label_10.setGeometry(QtCore.QRect(100, 740, 61, 31)) #100, 740, 61, 31
+                self.label_10.setGeometry(QtCore.QRect(100, 740, 61, 31))
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 font.setBold(True)
@@ -482,21 +479,12 @@ class Ui_MainWindow(object):
                 self.label_10.setObjectName("label_10")
 
                 self.boxLabel = QtWidgets.QLabel(self.centralwidget)
-                self.boxLabel.setGeometry(QtCore.QRect(70, 710, 1050, 91)) #70, 710, 1021, 91
+                self.boxLabel.setGeometry(QtCore.QRect(70, 710, 1050, 91))
                 self.boxLabel.setStyleSheet("background-color: rgb(255, 255, 255);\n"
                 "border: 1px solid black;\n"
                 "border-radius: 7px;")
 
-                """self.pushButton_46 = QtWidgets.QPushButton(self.centralwidget)
-                self.pushButton_46.setGeometry(QtCore.QRect(70, 710, 1021, 91))
-                self.pushButton_46.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-                "border: 1px solid black;\n"
-                "border-radius: 7px;")
-                self.pushButton_46.setText("")
-                self.pushButton_46.setObjectName("pushButton_46")"""
                 self.pushButton_47 = QtWidgets.QPushButton(self.centralwidget)
-
-
                 self.pushButton_47.setGeometry(QtCore.QRect(440, 720, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -647,17 +635,10 @@ class Ui_MainWindow(object):
                 self.statusbar.setObjectName("statusbar")
                 MainWindow.setStatusBar(self.statusbar)
                 self.menubar.addAction(self.menuTBd.menuAction())
-                """
-                           ADD CODE BELOW THIS COMMENT SECTION
-                           ADD CODE BELOW THIS COMMENT SECTION
-                           ADD CODE BELOW THIS COMMENT SECTION
-                           ADD CODE BELOW THIS COMMENT SECTION
-                """
-
-                self.retranslateUi(MainWindow, self.fileName)
+                self.retranslateUi(MainWindow, "")
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        #TBD
+        #TBD - Add commens
         def buttonClickedWindow(self):
                 buttonHandle = MainWindow.sender()
                 b = buttonHandle.objectName()
@@ -715,12 +696,10 @@ class Ui_MainWindow(object):
 
                 if color == "blue":
                         button.setStyleSheet("border-radius: 10px;\n"
-                                             #"font: 75 8pt \"MS Shell Dlg 2\";\n"
                                              "background-color: rgb(153, 210, 242);\n"
                                              "border: 1px solid black;")
                         if frame == "C":
                                 button.setStyleSheet("border-radius: 10px;\n"
-                                                     #"font: 75 8pt \"MS Shell Dlg 2\";\n"
                                                      "background-color: rgb(153, 210, 242);\n"
                                                      "border: 3px solid blue;")
                 elif color == "pink":
@@ -799,6 +778,9 @@ class Ui_MainWindow(object):
         # Uses the path to re-translate the information into the window
         def uploadButton_handler(self):
                 path = self.getOpenFileName()
+                global fileName
+                fileName = path
+                #print("in upload method filename: {}".format(fileName))
                 self.retranslateUi(MainWindow, newPath=path)
                 #self.usernameLbl.setText(name)
 
@@ -816,17 +798,9 @@ class Ui_MainWindow(object):
                 #print(response[0])
                 return response[0]
 
-        # TBD
-        # There is a label in the bottom of the Main window that will display
-        # A congratulations message if the user has selected all buttons as taken
-        """def congratulations(self):
-                self.congratulationsLbl.setText("Number of credits compleated: 3!!!")
-                print()"""
-
-        # TBD
-        # The method adds the name of the user to the text file
-        # Planing to save the username as the last line of the text file
-        # In case the upload button is called it needs to display (setVisible)
+        # The method adds the name of the user to the text file and generates a text file
+        # Save the username as the last line of the text file
+        # In case the upload button is called it displays the user name inserted
         def addUser(self):
                 global name
                 global splitname
@@ -835,11 +809,12 @@ class Ui_MainWindow(object):
 
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
-
+                global fileName
                 if name != "":
                         filename = name + ".txt"
+
                         if len(splitname) == 2:
-                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                with open(fileName, 'r', encoding='utf-8') as f:
                                         data1 = f.readlines()
 
                                 data1[40] = [f'{splitname[0]} {splitname[1]},0, 0, None, None']
@@ -847,8 +822,11 @@ class Ui_MainWindow(object):
                                         for lines in data1:
                                                 f.writelines(lines)
                                 f.close()
+                                # Use the new file created to make the new changes
+                                fileName = filename
+
                         elif len(splitname) == 3:
-                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                with open(fileName, 'r', encoding='utf-8') as f:
                                         data1 = f.readlines()
 
                                 data1[40] = [f'{splitname[0]} {splitname[1]}, {splitname[2]},0, None, None']
@@ -856,18 +834,27 @@ class Ui_MainWindow(object):
                                         for lines in data1:
                                                 f.writelines(lines)
                                 f.close()
+                                # Use the new file created to make the new changes
+                                fileName = filename
+
                         else:
-                                with open('UpdatedCourseInfo.txt', 'r', encoding='utf-8') as f:
+                                with open(fileName, 'r', encoding='utf-8') as f:
                                         data1 = f.readlines()
                                 data1[40] = [f'{splitname[0]},0, 0, None, None']
                                 with open(filename, 'w', encoding='utf-8') as f:
                                         for lines in data1:
                                                 f.writelines(lines)
                                 f.close()
+
+                                # Use the new file created to make the new changes
+                                fileName = filename
                 else:
                         self.usernameLbl.setText("Please Try Again!")
-                print(name)
 
+
+        # TBD -- add comments
+        # There is a label in the bottom of the Main window that will display
+        # A congratulations message if the user has selected all buttons as taken
         def congratulations(self, path):
                 path = path if path else "UpdatedCourseInfo.txt"
                 data = self.processFile(path)
@@ -927,8 +914,29 @@ class Ui_MainWindow(object):
                                     self.pushButton_35, self.pushButton_36, self.pushButton_37, self.pushButton_38,
                                     self.pushButton_39, self.pushButton_40]
 
-
                 newPath = newPath if newPath else "CourseInfo.txt"
+
+                global fileName
+
+                # We do not want to change the generic file 'CourseInfo.txt'
+                # Since we want to have a file to get back to in case we lose information
+                # The program makes the changes in 'UpdatedCourseInfo.txt'
+
+                # path of the given file - not being used - saved for debugging the file source
+                fullPath = os.path.dirname(os.path.abspath("CourseInfo.txt"))
+
+                # current working directory
+                currentDirectory = os.path.abspath(os.getcwd())
+                mainFile = currentDirectory + "/CourseInfo.txt"
+                #print(mainFile)
+
+                if newPath == "CourseInfo.txt" or mainFile:
+                        newPath == "UpdatedCourseInfo.txt"
+                        fileName = "UpdatedCourseInfo.txt"
+                else:
+                        fileName = newPath
+
+
                 """import sched, time
                 s = sched.scheduler(time.time, time.sleep)
                 s.enter(6, 1, self.congratulations(newPath), (s,))
@@ -951,7 +959,6 @@ class Ui_MainWindow(object):
 
                 self.usernameLbl.setText(name)
                 self.congratulations(newPath)
-                self.fileName = newPath
 
                 Ui_MainWindow.populate(self, arrayButton=buttonArray, path = newPath, translator=_translate)
 
@@ -974,9 +981,10 @@ class Ui_MainWindow(object):
                 self.enterBtn.setText(_translate("MainWindow", "Save"))
                 self.nameLbl.setText(_translate("MainWindow", "Name:"))
                 self.uploadButton.setText(_translate("MainWindow", "Upload"))
-                #self.menuTBd.setTitle(_translate("MainWindow", "Interactive FlowChart"))
 
+# The second window User Interface
 class Ui_SecondWindow(object):
+        # Method to construct the second window whole structure
         def setupUi_2(self, MainWindow):
                 # Reuse initial flags and negate the flag you want to unset
                 # Negate the Maximize button
@@ -993,7 +1001,7 @@ class Ui_SecondWindow(object):
                 font.setWeight(75)
                 self.courseCodeLbl.setFont(font)
                 self.courseCodeLbl.setObjectName("courseCodeLbl")
-                self.changeCourseBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.changeCourseBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.changeCourse())
                 self.changeCourseBtn.setGeometry(QtCore.QRect(390, 310, 75, 35))
                 font = QtGui.QFont()
                 font.setPointSize(9)
@@ -1009,7 +1017,7 @@ class Ui_SecondWindow(object):
                 self.lineEdit.setGeometry(QtCore.QRect(360, 130, 141, 31))
                 self.lineEdit.setStyleSheet("border: 1px solid black;")
                 self.lineEdit.setObjectName("lineEdit")
-                self.blueBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.blueBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateColorBlue())
                 self.blueBtn.setGeometry(QtCore.QRect(130, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setFamily("MS Shell Dlg 2")
@@ -1026,7 +1034,7 @@ class Ui_SecondWindow(object):
                 self.blueBtn.setAutoRepeatInterval(100)
                 self.blueBtn.setFlat(False)
                 self.blueBtn.setObjectName("blueBtn")
-                self.pinkBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.pinkBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateColorPink())
                 self.pinkBtn.setGeometry(QtCore.QRect(220, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -1040,7 +1048,7 @@ class Ui_SecondWindow(object):
                 self.pinkBtn.setAutoRepeatInterval(100)
                 self.pinkBtn.setFlat(False)
                 self.pinkBtn.setObjectName("pinkBtn")
-                self.violetBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.violetBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateColorViolet())
                 self.violetBtn.setGeometry(QtCore.QRect(400, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -1054,7 +1062,7 @@ class Ui_SecondWindow(object):
                 self.violetBtn.setAutoRepeatInterval(100)
                 self.violetBtn.setFlat(False)
                 self.violetBtn.setObjectName("violetBtn")
-                self.yellowBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.yellowBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateColorYellow())
                 self.yellowBtn.setGeometry(QtCore.QRect(310, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -1068,7 +1076,7 @@ class Ui_SecondWindow(object):
                 self.yellowBtn.setAutoRepeatInterval(100)
                 self.yellowBtn.setFlat(False)
                 self.yellowBtn.setObjectName("yellowBtn")
-                self.takenBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.takenBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateColorTaken())
                 self.takenBtn.setGeometry(QtCore.QRect(580, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -1082,7 +1090,7 @@ class Ui_SecondWindow(object):
                 self.takenBtn.setAutoRepeatInterval(100)
                 self.takenBtn.setFlat(False)
                 self.takenBtn.setObjectName("takenBtn")
-                self.cnotcBtn = QtWidgets.QPushButton(self.centralwidget)
+                self.cnotcBtn = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.UpdateCNotC())
                 self.cnotcBtn.setGeometry(QtCore.QRect(490, 390, 70, 70))
                 font = QtGui.QFont()
                 font.setPointSize(8)
@@ -1149,26 +1157,8 @@ class Ui_SecondWindow(object):
                 self.statusbar.setObjectName("statusbar")
                 MainWindow.setStatusBar(self.statusbar)
                 self.menubar.addAction(self.menuChange_Your_Schedule.menuAction())
-
-                """
-                ADD CODE BELOW THIS COMMENT SECTION
-                ADD CODE BELOW THIS COMMENT SECTION
-                ADD CODE BELOW THIS COMMENT SECTION
-                ADD CODE BELOW THIS COMMENT SECTION
-                """
-
-
                 self.retranslateUi(MainWindow)
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-                self.changeCourseBtn.clicked.connect(self.changeCourse)
-                self.blueBtn.clicked.connect(self.UpdateColorBlue)
-                self.pinkBtn.clicked.connect(self.UpdateColorPink)
-                self.yellowBtn.clicked.connect(self.UpdateColorYellow)
-                self.violetBtn.clicked.connect(self.UpdateColorViolet)
-                self.takenBtn.clicked.connect(self.UpdateColorTaken)
-                self.cnotcBtn.clicked.connect(self.UpdateCNotC)
-
 
         def retranslateUi(self, MainWindow):
                 _translate = QtCore.QCoreApplication.translate
@@ -1191,9 +1181,8 @@ class Ui_SecondWindow(object):
                 self.courseIDLbl.setText(_translate("MainWindow", "Course ID"))
                 self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
                 self.label.setText(_translate("MainWindow", "Update Course Information"))
-                #self.menuChange_Your_Schedule.setTitle(_translate("MainWindow", "Change Your Schedule")
 
-
+        #Add comments
         def UpdateColorBlue(self):
                 line = self.changeCourse()
 
@@ -1207,13 +1196,13 @@ class Ui_SecondWindow(object):
                 else:
                         new_line = f"{line}, blue, NotC"
 
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
-                w = open('UpdatedCourseInfo.txt', 'w')
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
@@ -1229,7 +1218,7 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-
+        #Add comments
         def UpdateColorPink(self):
                 line = self.changeCourse()
 
@@ -1243,13 +1232,13 @@ class Ui_SecondWindow(object):
                 else:
                         new_line = f"{line}, pink, NotC"
 
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
-                w = open('UpdatedCourseInfo.txt', 'w')
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
@@ -1265,7 +1254,7 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-
+        #Add comments
         def UpdateColorYellow(self):
                 line = self.changeCourse()
 
@@ -1279,13 +1268,13 @@ class Ui_SecondWindow(object):
                 else:
                         new_line = f"{line}, yellow, NotC"
 
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
-                w = open('UpdatedCourseInfo.txt', 'w')
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
@@ -1301,7 +1290,7 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-
+        #Add comments
         def UpdateColorViolet(self):
                 line = self.changeCourse()
 
@@ -1315,13 +1304,13 @@ class Ui_SecondWindow(object):
                 else:
                         new_line = f"{line}, purple, NotC"
 
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
-                w = open('UpdatedCourseInfo.txt', 'w')
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
@@ -1337,7 +1326,7 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-
+        #Add comments
         def UpdateColorTaken(self):
                 line = self.changeCourse()
 
@@ -1348,7 +1337,7 @@ class Ui_SecondWindow(object):
                         words.append('grey')
                         words.append('NotC')
                         new_line = ', '.join(words)
-                        print(new_line)
+                        #print(new_line)
                 else:
                         x = ''.join(line)
                         x = line.split()
@@ -1356,20 +1345,20 @@ class Ui_SecondWindow(object):
                         y = x.split(',')
                         global additionalCredits
                         additionalCredits = int(y[2])
-                        print("Inside Taken: {}".format(additionalCredits))
+                        #print("Inside Taken: {}".format(additionalCredits))
                         #congratulationsLbl.clear()
                         #Ui_MainWindow.retranslateUi(MainWindow, "UpdatedCourseInfo.txt")
                         new_line = f"{line}, grey, NotC"
 
                 #self.congratulations(path="UpdatedCourseInfo.txt")
 
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
-                w = open('UpdatedCourseInfo.txt', 'w')
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
@@ -1385,10 +1374,12 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
+        #Add comments
         def UpdateCNotC(self):
-                f = open('UpdatedCourseInfo.txt', 'r')
+                f = open(fileName, 'r')
                 lines = f.readlines()
                 f.close()
+
                 color = ''
                 global frame
                 global classColor
@@ -1507,7 +1498,6 @@ class Ui_SecondWindow(object):
                 else:
                         updated_line = className + 'C'
                         lines[buttonIndex] = f"{updated_line}\n"
-                        #print(updated_line)
 
                         if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
                                                                      "background-color: rgb(153, 210, 242);\n"
@@ -1598,18 +1588,18 @@ class Ui_SecondWindow(object):
                                         f"border-radius: 10px;\n{classColor}border: 1px solid black;")
 
                 current_line = (buttonArray[buttonIndex].text())
-                # print('Current Line:', current_line)
                 words = current_line.split()
                 words.pop()
                 new_line = ', '.join(words)
 
                 lines[buttonIndex] = (f"{new_line}, {color}, {frame}\n")
-                print(lines[buttonIndex])
-                w = open('UpdatedCourseInfo.txt', 'w')
+
+                w = open(fileName, 'w')
                 for x in lines:
                         w.write(x)
                 w.close()
 
+        #Add comments
         def changeCourse(self):
                 self.errorLbl.clear()
                 courseCode = self.lineEdit.text()
@@ -1618,6 +1608,7 @@ class Ui_SecondWindow(object):
 
                 courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
                 courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
+                #courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID) #(?:\'w'\'W')?
                 numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
@@ -1629,7 +1620,8 @@ class Ui_SecondWindow(object):
                         myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
                         line = ", ".join(myline)
 
-                        f = open('UpdatedCourseInfo.txt', 'r')
+                        #print("changeCourse file name: " + fileName)
+                        f = open(fileName, 'r')
                         lines = f.readlines()
                         f.close()
                         global color
@@ -1712,120 +1704,9 @@ class Ui_SecondWindow(object):
 
 
                         lines[buttonIndex] = (f"{line}, {color}, {frame}\n")
-                        w = open('UpdatedCourseInfo.txt', 'w')
-                        for x in lines:
-                                w.write(x)
-                        w.close()
 
-                        buttonArray[buttonIndex].setText(f"{courseCodeFinal} \n {courseIDFinal} \n {numberOfCreditsFinal} credits")
-
-
-                        return line
-
-        def UpdateCNotCOld(self):
-                f = open('UpdatedCourseInfo.txt', 'r')
-                lines = f.readlines()
-                f.close()
-                color = ''
-                print(buttonArray[buttonIndex].styleSheet())
-                print("Classname {}".format(className))
-                if className == '':
-                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
-                                                                     "background-color: rgb(153, 210, 242);\n"
-                                                                     "border: 1px solid black;"):
-                                classColor = "background-color: rgb(153, 210, 242);\n"
-                                color = 'blue'
-                                print('yes')
-
-                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
-                                                                       "background-color: rgb(249, 210, 222);\n"
-                                                                       "border: 1px solid black;"):
-                                classColor = "background-color: rgb(249, 210, 222);\n"
-                                color = 'pink'
-                                print('yes')
-
-                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # yellow
-                                                                       "background-color: rgb(255, 219, 169);\n"
-                                                                       "border: 1px solid black;"):
-                                classColor = "background-color: rgb(255, 219, 169);\n"
-                                color = 'yellow'
-
-                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # purple
-                                                                       "background-color: rgb(179, 145, 181);\n"
-                                                                       "border: 1px solid black;"):
-                                classColor = "background-color: rgb(179, 145, 181);\n"
-                                color = 'purple'
-
-
-                        elif buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
-                                                                       "background-color: rgb(211, 211, 211);\n"
-                                                                       "border: 1px solid black;"):
-                                classColor = "background-color: rgb(211, 211, 211);\n"
-                                color = 'grey'
-
-                        print('Color found {}'.format(color))
-                        current_line = (buttonArray[buttonIndex].text())
-                        words = current_line.split()
-                        words.pop()
-                        words.append(color)
-                        words.append('C')
-                        new_line = ', '.join(words)
-                        updated_line = new_line
-                        print(updated_line)
-                        #lines[buttonIndex] = f"{updated_line}\n"
-
-                else:
-                        updated_line = className + 'C'
-                        lines[buttonIndex] = f"{updated_line}\n"
-                        print(updated_line)
-
-                w = open('UpdatedCourseInfo.txt', 'w')
-                for x in lines:
-                        w.write(x)
-                w.close()
-
-                self.cnotcBtn.clicked.disconnect()
-                self.cnotcBtn.clicked.connect(self.UpdateCNotCAgain)
-
-                buttonArray[buttonIndex].setStyleSheet(f"border-radius: 10px;\n{classColor}border: 3px solid blue;")
-
-
-        def changeCourseOLD(self):
-                self.errorLbl.clear()
-                courseCode = self.lineEdit.text()
-                courseID = self.lineEdit_2.text()
-                numberOfCredits = self.lineEdit_3.text()
-
-                courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
-                courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID) #(?:\'w'\'W')?
-                numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
-
-                if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
-                        self.errorLbl.setText("Error")
-                else:
-                        courseCodeFinal = courseCode
-                        courseIDFinal = courseID.replace(" ", ", ")
-                        numberOfCreditsFinal = numberOfCredits.replace(" ", ", ")
-                        myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
-                        line = ", ".join(myline)
-
-                        f = open('UpdatedCourseInfo.txt', 'r')
-                        lines = f.readlines()
-                        f.close()
-
-                        textFileLine = lines[buttonIndex]
-                        x = ''.join(textFileLine)
-                        x = textFileLine.split()
-                        x = ''.join(x)
-                        y = x.split(',')
-
-                        colorNframe = str(y[3] + ", " + y[4])
-
-                        line = line + ", " + colorNframe
-
-                        lines[buttonIndex] = f"{line}\n"
-
-                        w = open('UpdatedCourseInfo.txt', 'w')
+                        #print("changecourse filename {}".format(fileName))
+                        w = open(fileName, 'w')
                         for x in lines:
                                 w.write(x)
                         w.close()
@@ -1834,7 +1715,7 @@ class Ui_SecondWindow(object):
 
                         return line
 
-# Main method that instantiate the class and calls the methods accordingly
+# Main method that instantiate the class and calls the methods step by step
 if __name__ == "__main__":
         app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
