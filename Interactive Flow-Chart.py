@@ -780,7 +780,7 @@ class Ui_MainWindow(object):
                 path = self.getOpenFileName()
                 global fileName
                 fileName = path
-                #print("in upload method filename: {}".format(fileName))
+                print("in upload method filename: {}".format(fileName))
                 self.retranslateUi(MainWindow, newPath=path)
                 #self.usernameLbl.setText(name)
 
@@ -810,6 +810,7 @@ class Ui_MainWindow(object):
                 self.usernameLbl.setText(name)
                 self.inputBox.clear()
                 global fileName
+
                 if name != "":
                         filename = name + ".txt"
 
@@ -824,6 +825,7 @@ class Ui_MainWindow(object):
                                 f.close()
                                 # Use the new file created to make the new changes
                                 fileName = filename
+                                self.retranslateUi(MainWindow, newPath=fileName)
 
                         elif len(splitname) == 3:
                                 with open(fileName, 'r', encoding='utf-8') as f:
@@ -836,6 +838,7 @@ class Ui_MainWindow(object):
                                 f.close()
                                 # Use the new file created to make the new changes
                                 fileName = filename
+                                self.retranslateUi(MainWindow, newPath=fileName)
 
                         else:
                                 with open(fileName, 'r', encoding='utf-8') as f:
@@ -848,6 +851,7 @@ class Ui_MainWindow(object):
 
                                 # Use the new file created to make the new changes
                                 fileName = filename
+                                self.retranslateUi(MainWindow, newPath=fileName)
                 else:
                         self.usernameLbl.setText("Please Try Again!")
 
@@ -930,7 +934,7 @@ class Ui_MainWindow(object):
                 mainFile = currentDirectory + "/CourseInfo.txt"
                 #print(mainFile)
 
-                if newPath == "CourseInfo.txt" or mainFile:
+                if newPath == "CourseInfo.txt" or newPath == mainFile:
                         newPath == "UpdatedCourseInfo.txt"
                         fileName = "UpdatedCourseInfo.txt"
                 else:
@@ -940,7 +944,8 @@ class Ui_MainWindow(object):
                 """import sched, time
                 s = sched.scheduler(time.time, time.sleep)
                 s.enter(6, 1, self.congratulations(newPath), (s,))
-                s.run()"""
+                s.run()
+                """
 
                 #Update the username on the version
                 with open(newPath, 'r', encoding='utf-8') as f:
@@ -1607,8 +1612,8 @@ class Ui_SecondWindow(object):
                 numberOfCredits = self.lineEdit_3.text()
 
                 courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
-                courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
-                #courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID) #(?:\'w'\'W')?
+                #courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
+                courseIDRegex = re.search("^\s*[0-9]{3,4}(?:\'w'\'W')?\s*$", courseID) #(?:\'w'\'W')?
                 numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
@@ -1721,5 +1726,6 @@ if __name__ == "__main__":
         MainWindow = QtWidgets.QMainWindow()
         ui = Ui_MainWindow()
         ui.setupUi(MainWindow)
+        ## Implement method
         MainWindow.show()
         sys.exit(app.exec_())

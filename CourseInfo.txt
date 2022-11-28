@@ -1,5 +1,5 @@
 CRIMJ, 100, 3, blue, C
-ENGL15, 30H, 3, grey, NotC
+ENGL15, 30H, 3, yellow, NotC
 GA/GS/GH/GN, 0, 3, pink, NotC
 GA/GS/GH/GN, 1, 3, pink, NotC
 Elective, 3, 3, yellow, NotC
@@ -7,9 +7,9 @@ CAS, 100A/B, 3, pink, NotC
 GQ, 2, 3, pink, NotC
 CRIMJ-SOC, 12, 3, blue, NotC
 CRIMJ, 210-220-230, 3, blue, NotC
-GA/GS/GH/GN, 4, 3, grey, NotC
+GA/GS/GH/GN, 4, 3, pink, NotC
 PHIL-BA-CRIMJ, 103-243-465, 3, blue, NotC
-Elective, 8, 3, grey, C
+Elective, 8, 3, yellow, C
 STAT-PSYCH, 200, 4, purple, NotC
 ENGL, 202, 3, pink, NotC
 SOC-CRIMJ, 119N-451, 3, blue, NotC
@@ -21,7 +21,7 @@ GA/GS/GH/GN, 7, 3, pink, NotC
 CRIMJ, 250W, 3, blue, NotC
 Elective, 12, 3, yellow, NotC
 S-Enhancement, 1, 3, blue, NotC
-S-Enhancement, 2, 3, grey, NotC
+S-Enhancement, 2, 3, blue, NotC
 CRIMJ, 441, 3, blue, NotC
 GA/GS/GH/GN, 9, 3, pink, NotC
 CRIMJ, 290, 3, blue, NotC
