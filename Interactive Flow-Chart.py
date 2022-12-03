@@ -23,6 +23,9 @@ className = ''
 additionalCredits = 0
 name = ""
 fileName = ""
+congratulations = ""
+numberOfCredits = 0
+totalNumberOfCredits = 0
 
 # The main User Interface Window
 class Ui_MainWindow(object):
@@ -509,6 +512,9 @@ class Ui_MainWindow(object):
                 self.congratulationsLbl.setStyleSheet("color: rgb(153, 0, 153);")
                 self.congratulationsLbl.setText("")
                 self.congratulationsLbl.setObjectName("congratulationsLbl")
+                global congratulations
+                congratulations = self.congratulationsLbl
+
                 self.usernameLbl = QtWidgets.QLabel(self.centralwidget)
                 self.usernameLbl.setGeometry(QtCore.QRect(40, 50, 221, 31))
                 font = QtGui.QFont()
@@ -866,7 +872,10 @@ class Ui_MainWindow(object):
                 #print(data)
 
                 x = 0
+                global numberOfCredits
                 numberOfCredits = 0
+
+                global totalNumberOfCredits
                 totalNumberOfCredits = 0
                 for i in data:
                         if i[3] == "grey":
@@ -878,7 +887,7 @@ class Ui_MainWindow(object):
                         totalNumberOfCredits += int(i[2])
 
                 #print(additionalCredits)
-                numberOfCredits += additionalCredits
+                #numberOfCredits += additionalCredits
 
                 labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
                 if additionalCredits:
@@ -1195,6 +1204,22 @@ class Ui_SecondWindow(object):
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
+
+                        global totalNumberOfCredits
+                        global numberOfCredits
+                        global congratulations
+                        self.errorLbl.clear()
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
                         words.append('blue')
                         words.append('NotC')
                         new_line = ', '.join(words)
@@ -1231,6 +1256,23 @@ class Ui_SecondWindow(object):
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
+
+                        global totalNumberOfCredits
+                        global numberOfCredits
+                        global congratulations
+                        self.errorLbl.clear()
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
                         words.append('pink')
                         words.append('NotC')
                         new_line = ', '.join(words)
@@ -1267,6 +1309,24 @@ class Ui_SecondWindow(object):
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
+
+                        global totalNumberOfCredits
+                        global numberOfCredits
+                        global congratulations
+                        self.errorLbl.clear()
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
+
                         words.append('yellow')
                         words.append('NotC')
                         new_line = ', '.join(words)
@@ -1303,6 +1363,24 @@ class Ui_SecondWindow(object):
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
+
+                        global totalNumberOfCredits
+                        global numberOfCredits
+                        global congratulations
+                        self.errorLbl.clear()
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
+
                         words.append('purple')
                         words.append('NotC')
                         new_line = ', '.join(words)
@@ -1333,33 +1411,83 @@ class Ui_SecondWindow(object):
 
         #Add comments
         def UpdateColorTaken(self):
+
+                credits = 0
+                buttonCredits = 0
+                global totalNumberOfCredits
+                global numberOfCredits
+                global congratulations
+                global className
+                global classColor
+
+                f = open(fileName, 'r')
+                lines = f.readlines()
+                f.close()
+
+                fileLine = lines[buttonIndex]
+
+                c = ''.join(fileLine)
+                c = c.split()
+                c = ''.join(c)
+                h = c.split(',')
+                buttonCredits = int(h[2])
+
+                print("credits inserted {a} and button credits {b}".format(a=credits, b=buttonCredits))
+
+
                 line = self.changeCourse()
 
                 if line == None or line == "":
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                       "background-color: rgb(211, 211, 211);\n"
+                                                       "border: 1px solid black;") or buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                                                                                "background-color: rgb(211, 211, 211);\n"
+                                                                                                                                "border: 3px solid blue;"):
+                                pass
+                        else:
+                                self.errorLbl.clear()
+                                credits = int(words[2])
+                                numberOfCredits += credits
+                                labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
                         words.pop()
                         words.append('grey')
                         words.append('NotC')
+
                         new_line = ', '.join(words)
-                        #print(new_line)
                 else:
                         x = ''.join(line)
                         x = line.split()
                         x = ''.join(x)
                         y = x.split(',')
-                        global additionalCredits
-                        additionalCredits = int(y[2])
-                        #print("Inside Taken: {}".format(additionalCredits))
-                        #congratulationsLbl.clear()
-                        #Ui_MainWindow.retranslateUi(MainWindow, "UpdatedCourseInfo.txt")
+                        # print(y)
+                        credits = int(y[2])
+
+                        print("credits inserted {a} and button credits {b}".format(a=credits, b=buttonCredits))
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                       "background-color: rgb(211, 211, 211);\n"
+                                                       "border: 1px solid black;") or buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                                                                                "background-color: rgb(211, 211, 211);\n"
+                                                                                                                                "border: 3px solid blue;"):
+                                pass
+                        elif credits == buttonCredits:
+                                numberOfCredits += credits
+                                # numberOfCredits = 0
+                                credits = 0
+                                print("credits and button credits equal or no change is made")
+                        elif credits > buttonCredits:
+                                # global totalNumberOfCredits
+                                diff = credits - buttonCredits
+                                numberOfCredits += diff
+                                totalNumberOfCredits += diff
+
+                        labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
+                        congratulations.setText(labelText)
                         new_line = f"{line}, grey, NotC"
-
-                #self.congratulations(path="UpdatedCourseInfo.txt")
-
-                f = open(fileName, 'r')
-                lines = f.readlines()
-                f.close()
 
                 lines[buttonIndex] = f"{new_line}\n"
 
@@ -1372,9 +1500,9 @@ class Ui_SecondWindow(object):
                                                        "background-color: rgb(211, 211, 211);\n"
                                                        "border: 1px solid black;")
 
-                global classColor
+
                 classColor = "background-color: rgb(211, 211, 211);\n"
-                global className
+
                 className = f"{line}, grey, "
 
                 return new_line
@@ -1609,28 +1737,66 @@ class Ui_SecondWindow(object):
                 self.errorLbl.clear()
                 courseCode = self.lineEdit.text()
                 courseID = self.lineEdit_2.text()
-                numberOfCredits = self.lineEdit_3.text()
+                numOfCredits = self.lineEdit_3.text()
 
-                courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{3,13}\s*$", courseCode)
+                courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{2,13}\s*$", courseCode)
                 #courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
                 courseIDRegex = re.search("^\s*[0-9]{3,4}(?:\'w'\'W')?\s*$", courseID) #(?:\'w'\'W')?
-                numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numberOfCredits)
+                numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
                         self.errorLbl.setText("Error")
                 else:
                         courseCodeFinal = courseCode
                         courseIDFinal = courseID.replace(" ", ", ")
-                        numberOfCreditsFinal = numberOfCredits.replace(" ", ", ")
+                        numberOfCreditsFinal = numOfCredits.replace(" ", ", ")
                         myline = (courseCodeFinal, courseIDFinal, numberOfCreditsFinal)
                         line = ", ".join(myline)
 
-                        #print("changeCourse file name: " + fileName)
+                        global totalNumberOfCredits
+                        global numberOfCredits
+                        global congratulations
+                        global color
+                        global frame
+
                         f = open(fileName, 'r')
                         lines = f.readlines()
                         f.close()
-                        global color
-                        global frame
+
+
+                        fileLine = lines[buttonIndex]
+                        credits = int(numberOfCreditsFinal)
+
+                        c = ''.join(fileLine)
+                        c = c.split()
+                        c = ''.join(c)
+                        h = c.split(',')
+                        buttonCredits = int(h[2])
+
+                        print("credits inserted {a} and button credits {b}".format(a=credits, b=buttonCredits))
+                        if credits != buttonCredits:
+                                if credits == buttonCredits:
+                                        #numberOfCredits += credits
+                                        # numberOfCredits = 0
+                                        credits += 0
+                                        print("credits and button credits equal or no change is made")
+                                elif credits > buttonCredits:
+                                        #global totalNumberOfCredits
+                                        diff = credits - buttonCredits
+                                        #numberOfCredits += diff
+                                        totalNumberOfCredits += diff
+
+                                elif credits < buttonCredits:
+                                        diff = buttonCredits - credits
+                                        numberOfCredits -= diff
+                                        totalNumberOfCredits -= diff
+                                else:
+                                        print("Error in changeCourse() method!")
+
+
+                                print()
+                                labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
 
                         if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"  # blue
                                                                      "background-color: rgb(153, 210, 242);\n"
@@ -1710,13 +1876,12 @@ class Ui_SecondWindow(object):
 
                         lines[buttonIndex] = (f"{line}, {color}, {frame}\n")
 
-                        #print("changecourse filename {}".format(fileName))
                         w = open(fileName, 'w')
                         for x in lines:
                                 w.write(x)
                         w.close()
 
-                        buttonArray[buttonIndex].setText(f"{courseCodeFinal} \n {courseIDFinal} \n {numberOfCreditsFinal} credits")
+                        buttonArray[buttonIndex].setText(f"{courseCodeFinal} \n{courseIDFinal} \n {numberOfCreditsFinal} credits")
 
                         return line
 
