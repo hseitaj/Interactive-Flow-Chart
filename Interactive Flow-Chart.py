@@ -1200,14 +1200,15 @@ class Ui_SecondWindow(object):
         def UpdateColorBlue(self):
                 line = self.changeCourse()
 
+                global totalNumberOfCredits
+                global numberOfCredits
+                global congratulations
+
                 if line == None:
                         current_line = (buttonArray[buttonIndex].text())
                         words = current_line.split()
                         words.pop()
 
-                        global totalNumberOfCredits
-                        global numberOfCredits
-                        global congratulations
                         self.errorLbl.clear()
                         if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
                                                                      "background-color: rgb(211, 211, 211);\n"
@@ -1224,6 +1225,27 @@ class Ui_SecondWindow(object):
                         words.append('NotC')
                         new_line = ', '.join(words)
                 else:
+                        self.errorLbl.clear()
+
+                        x = ''.join(line)
+                        x = line.split()
+                        x = ''.join(x)
+                        y = x.split(',')
+                        # print(y)
+                        credits = int(y[2])
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                #credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
                         new_line = f"{line}, blue, NotC"
 
                 f = open(fileName, 'r')
@@ -1277,6 +1299,27 @@ class Ui_SecondWindow(object):
                         words.append('NotC')
                         new_line = ', '.join(words)
                 else:
+                        self.errorLbl.clear()
+
+                        x = ''.join(line)
+                        x = line.split()
+                        x = ''.join(x)
+                        y = x.split(',')
+                        # print(y)
+                        credits = int(y[2])
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                # credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
+
                         new_line = f"{line}, pink, NotC"
 
                 f = open(fileName, 'r')
@@ -1331,6 +1374,26 @@ class Ui_SecondWindow(object):
                         words.append('NotC')
                         new_line = ', '.join(words)
                 else:
+                        self.errorLbl.clear()
+
+                        x = ''.join(line)
+                        x = line.split()
+                        x = ''.join(x)
+                        y = x.split(',')
+                        # print(y)
+                        credits = int(y[2])
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                # credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
                         new_line = f"{line}, yellow, NotC"
 
                 f = open(fileName, 'r')
@@ -1380,11 +1443,30 @@ class Ui_SecondWindow(object):
                                         totalNumberOfCredits) + " credit(s) completed"
                                 congratulations.setText(labelText)
 
-
                         words.append('purple')
                         words.append('NotC')
                         new_line = ', '.join(words)
                 else:
+                        self.errorLbl.clear()
+
+                        x = ''.join(line)
+                        x = line.split()
+                        x = ''.join(x)
+                        y = x.split(',')
+                        # print(y)
+                        credits = int(y[2])
+
+                        if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                     "background-color: rgb(211, 211, 211);\n"
+                                                                     "border: 1px solid black;") or buttonArray[
+                                buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                              "background-color: rgb(211, 211, 211);\n"
+                                                              "border: 3px solid blue;"):
+                                # credits = int(words[2])
+                                numberOfCredits -= credits
+                                labelText = str(numberOfCredits) + " of " + str(
+                                        totalNumberOfCredits) + " credit(s) completed"
+                                congratulations.setText(labelText)
                         new_line = f"{line}, purple, NotC"
 
                 f = open(fileName, 'r')
@@ -1477,13 +1559,19 @@ class Ui_SecondWindow(object):
                         elif credits == buttonCredits:
                                 numberOfCredits += credits
                                 # numberOfCredits = 0
-                                credits = 0
+                                credits += 0
                                 print("credits and button credits equal or no change is made")
                         elif credits > buttonCredits:
                                 # global totalNumberOfCredits
                                 diff = credits - buttonCredits
                                 numberOfCredits += diff
                                 totalNumberOfCredits += diff
+                        elif credits < buttonCredits:
+                                diff = buttonCredits - credits
+                                numberOfCredits -= diff
+                                totalNumberOfCredits -= diff
+                        else:
+                                print("Error in changeCourse() method!")
 
                         labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
                         congratulations.setText(labelText)
@@ -1740,8 +1828,8 @@ class Ui_SecondWindow(object):
                 numOfCredits = self.lineEdit_3.text()
 
                 courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{2,13}\s*$", courseCode)
-                #courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
-                courseIDRegex = re.search("^\s*[0-9]{3,4}(?:\'w'\'W')?\s*$", courseID) #(?:\'w'\'W')?
+                courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
+                #courseIDRegex = re.search("^\s*[0-9]{3,4}(?:\'w'\'W')?\s*$", courseID) #(?:\'w'\'W')?
                 numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
@@ -1775,23 +1863,48 @@ class Ui_SecondWindow(object):
 
                         print("credits inserted {a} and button credits {b}".format(a=credits, b=buttonCredits))
                         if credits != buttonCredits:
-                                if credits == buttonCredits:
-                                        #numberOfCredits += credits
-                                        # numberOfCredits = 0
-                                        credits += 0
-                                        print("credits and button credits equal or no change is made")
-                                elif credits > buttonCredits:
-                                        #global totalNumberOfCredits
-                                        diff = credits - buttonCredits
-                                        #numberOfCredits += diff
-                                        totalNumberOfCredits += diff
+                                if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                             "background-color: rgb(211, 211, 211);\n"
+                                                                             "border: 1px solid black;") or buttonArray[
+                                        buttonIndex].styleSheet() == ("border-radius: 10px;\n"
+                                                                      "background-color: rgb(211, 211, 211);\n"
+                                                                      "border: 3px solid blue;"):
 
-                                elif credits < buttonCredits:
-                                        diff = buttonCredits - credits
-                                        numberOfCredits -= diff
-                                        totalNumberOfCredits -= diff
+                                        if credits == buttonCredits:
+                                                # numberOfCredits += credits
+                                                # numberOfCredits = 0
+                                                credits += 0
+                                                print("credits and button credits equal or no change is made")
+                                        elif credits > buttonCredits:
+                                                # global totalNumberOfCredits
+                                                diff = credits - buttonCredits
+                                                numberOfCredits += diff
+                                                totalNumberOfCredits += diff
+
+                                        elif credits < buttonCredits:
+                                                diff = buttonCredits - credits
+                                                numberOfCredits -= diff
+                                                totalNumberOfCredits -= diff
+                                        else:
+                                                print("Error in UpdateColorTaken() method!")
                                 else:
-                                        print("Error in changeCourse() method!")
+                                        if credits == buttonCredits:
+                                                #numberOfCredits += credits
+                                                # numberOfCredits = 0
+                                                credits += 0
+                                                print("credits and button credits equal or no change is made")
+                                        elif credits > buttonCredits:
+                                                #global totalNumberOfCredits
+                                                diff = credits - buttonCredits
+                                                #numberOfCredits += diff
+                                                totalNumberOfCredits += diff
+
+                                        elif credits < buttonCredits:
+                                                diff = buttonCredits - credits
+                                                #numberOfCredits -= diff
+                                                totalNumberOfCredits -= diff
+                                        else:
+                                                print("Error in changeCourse() method!")
 
 
                                 print()
