@@ -14,6 +14,9 @@ There will be 40 courses in total.
 
 Instruction on how to run the application:
 
+Demo: https://psu.mediaspace.kaltura.com/media/Hansi+Seitaj%27s+Zoom+Meeting/1_41j4889b?st=0&ed=285
+
+
 Download the zip file and extract the files in your own directory.
 Run the provided executable file.
 Click the upload button and choose your text file with the personal customized version of it.
