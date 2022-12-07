@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 
-# Interactive Flow Chart for CRIMJ 2022, Penn State Abington
+# Interactive Flow Chart for CMPSC 487W 2022 course, Penn State Abington
 
 # Please do not change the code - every part is crucial to not be dealing with errors.
 # Feel free to reach the collaborators with your questions.
 
 # All right reserved to Penn State Abington and collaborators.
 
-# Date: 11/27/2022
+# More about the program and collaborators (Github link): https://github.com/hseitaj/Interactive-Flow-Chart
 
+# Hansi Seitaj, Eni Vejseli, Almaz Akhunbaev, Lukas Belashov
+# Date: 12/07/2022
+
+# Imported libraries
+# PYQT5 needs to be installed before running this program
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 import sys
@@ -29,6 +34,7 @@ totalNumberOfCredits = 0
 
 # The main User Interface Window
 class Ui_MainWindow(object):
+
         # Will generate the second user interface
         def openWindow(self):
                 self.window = QtWidgets.QMainWindow()
@@ -38,8 +44,8 @@ class Ui_MainWindow(object):
 
         # Generate the structure of the main window
         def setupUi(self, MainWindow):
-                #Reuse initial flags and negate the flag you want to unset
-                #Negate the Maximize button
+                # Reuse initial flags and negate the flag you want to unset
+                # Negate the Maximize button
                 MainWindow.setWindowFlags(MainWindow.windowFlags() & ~QtCore.Qt.WindowMaximizeButtonHint)
 
                 MainWindow.setObjectName("MainWindow")
@@ -50,7 +56,7 @@ class Ui_MainWindow(object):
                 self.centralwidget = QtWidgets.QWidget(MainWindow)
                 self.centralwidget.setObjectName("centralwidget")
                 self.label = QtWidgets.QLabel(self.centralwidget)
-                self.label.setGeometry(QtCore.QRect(190, 10, 771, 31))
+                self.label.setGeometry(QtCore.QRect(170, 10, 960, 40)) #170, 10, 771, 31
                 font = QtGui.QFont()
                 font.setFamily("Times New Roman")
                 font.setPointSize(18)
@@ -61,7 +67,6 @@ class Ui_MainWindow(object):
                 self.label.setObjectName("label")
 
                 self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked=lambda: self.buttonClickedWindow())
-
                 self.pushButton.setGeometry(QtCore.QRect(20, 180, 121, 91))
                 self.pushButton.setStyleSheet("background-color: blue;\n"
                 "color: white;\n"
@@ -502,7 +507,7 @@ class Ui_MainWindow(object):
                 self.pushButton_47.setFlat(False)
                 self.pushButton_47.setObjectName("pushButton_47")
                 self.congratulationsLbl = QtWidgets.QLabel(self.centralwidget)
-                self.congratulationsLbl.setGeometry(QtCore.QRect(400, 810, 491, 71))
+                self.congratulationsLbl.setGeometry(QtCore.QRect(380, 810, 530, 71)) #400, 810, 491, 71
                 font = QtGui.QFont()
                 font.setFamily("Times New Roman")
                 font.setPointSize(22)
@@ -644,7 +649,11 @@ class Ui_MainWindow(object):
                 self.retranslateUi(MainWindow, "")
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        #TBD - Add commens
+        # The algorithm performs a linear search through each button in the button array. First a sender for the main
+        # window is created to grab the object which activated the buttonClickedWindow function, however in order to
+        # translate that syntax into something legible, the object name of that object must be assigned to the
+        # variable. Now that variable which holds the name of the button that triggered the function call is compared
+        # to every button name in the array, once a match is found, that iteration is returned as the index.
         def buttonClickedWindow(self):
                 buttonHandle = MainWindow.sender()
                 b = buttonHandle.objectName()
@@ -675,7 +684,7 @@ class Ui_MainWindow(object):
                                 # Strip the whitespaces
                                 text = line.strip()
                                 if text == '':
-                                        #print("Empty line") - When it finds a empty line it breaks out of the loop
+                                        #"Empty line" - When it finds a empty line it breaks out of the loop
                                         pass
                                 else:
                                         x = ''.join(text)
@@ -788,7 +797,7 @@ class Ui_MainWindow(object):
                 fileName = path
                 print("in upload method filename: {}".format(fileName))
                 self.retranslateUi(MainWindow, newPath=path)
-                #self.usernameLbl.setText(name)
+
 
         # Uses QFileDialog to get a file name form the directory
         # Restricted to Text files and All files only
@@ -801,7 +810,6 @@ class Ui_MainWindow(object):
                         filter=file_filter,
                         initialFilter='Text Files (*.txt)'
                 )
-                #print(response[0])
                 return response[0]
 
         # The method adds the name of the user to the text file and generates a text file
@@ -862,14 +870,12 @@ class Ui_MainWindow(object):
                         self.usernameLbl.setText("Please Try Again!")
 
 
-        # TBD -- add comments
         # There is a label in the bottom of the Main window that will display
         # A congratulations message if the user has selected all buttons as taken
         def congratulations(self, path):
                 path = path if path else "UpdatedCourseInfo.txt"
                 data = self.processFile(path)
                 self.congratulationsLbl.clear()
-                #print(data)
 
                 x = 0
                 global numberOfCredits
@@ -880,14 +886,9 @@ class Ui_MainWindow(object):
                 for i in data:
                         if i[3] == "grey":
                                 x += 1
-                                #print(x)
                                 numberOfCredits += int(i[2])
-                                #print("Grey lines: {}".format(x))
-                        #print(totalNumberOfCredits)
                         totalNumberOfCredits += int(i[2])
 
-                #print(additionalCredits)
-                #numberOfCredits += additionalCredits
 
                 labelText = str(numberOfCredits) + " of " + str(totalNumberOfCredits) + " credit(s) completed"
                 if additionalCredits:
@@ -895,7 +896,6 @@ class Ui_MainWindow(object):
                         self.congratulationsLbl.setText(labelText)
                 else:
                         self.congratulationsLbl.setText(labelText)
-                #self.retranslateUi(Ui_MainWindow, path)
 
                 if x == 40:
                         labelText = "Congratulations!!!"
@@ -941,20 +941,13 @@ class Ui_MainWindow(object):
                 # current working directory
                 currentDirectory = os.path.abspath(os.getcwd())
                 mainFile = currentDirectory + "/CourseInfo.txt"
-                #print(mainFile)
+
 
                 if newPath == "CourseInfo.txt" or newPath == mainFile:
                         newPath == "UpdatedCourseInfo.txt"
                         fileName = "UpdatedCourseInfo.txt"
                 else:
                         fileName = newPath
-
-
-                """import sched, time
-                s = sched.scheduler(time.time, time.sleep)
-                s.enter(6, 1, self.congratulations(newPath), (s,))
-                s.run()
-                """
 
                 #Update the username on the version
                 with open(newPath, 'r', encoding='utf-8') as f:
@@ -1008,7 +1001,7 @@ class Ui_SecondWindow(object):
                 self.centralwidget = QtWidgets.QWidget(MainWindow)
                 self.centralwidget.setObjectName("centralwidget")
                 self.courseCodeLbl = QtWidgets.QLabel(self.centralwidget)
-                self.courseCodeLbl.setGeometry(QtCore.QRect(240, 140, 101, 21))
+                self.courseCodeLbl.setGeometry(QtCore.QRect(220, 140, 120, 21)) #220, 140, 101, 21
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 font.setBold(True)
@@ -1118,7 +1111,7 @@ class Ui_SecondWindow(object):
                 self.cnotcBtn.setFlat(False)
                 self.cnotcBtn.setObjectName("cnotcBtn")
                 self.courseIDLbl = QtWidgets.QLabel(self.centralwidget)
-                self.courseIDLbl.setGeometry(QtCore.QRect(250, 200, 81, 21))
+                self.courseIDLbl.setGeometry(QtCore.QRect(220, 200, 100, 21))
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 font.setBold(True)
@@ -1130,7 +1123,7 @@ class Ui_SecondWindow(object):
                 self.lineEdit_2.setStyleSheet("border: 1px solid black;")
                 self.lineEdit_2.setObjectName("lineEdit_2")
                 self.numberOfCreditsLbl = QtWidgets.QLabel(self.centralwidget)
-                self.numberOfCreditsLbl.setGeometry(QtCore.QRect(250, 260, 81, 21))
+                self.numberOfCreditsLbl.setGeometry(QtCore.QRect(220, 260, 100, 21))
                 font = QtGui.QFont()
                 font.setPointSize(9)
                 font.setBold(True)
@@ -1150,7 +1143,7 @@ class Ui_SecondWindow(object):
                 self.errorLbl.setText("")
                 self.errorLbl.setObjectName("errorLbl")
                 self.label = QtWidgets.QLabel(self.centralwidget)
-                self.label.setGeometry(QtCore.QRect(210, 50, 361, 31))
+                self.label.setGeometry(QtCore.QRect(190, 50, 450, 31)) #180, 50, 361, 31
                 font = QtGui.QFont()
                 font.setFamily("Times New Roman")
                 font.setPointSize(20)
@@ -1174,6 +1167,7 @@ class Ui_SecondWindow(object):
                 self.retranslateUi(MainWindow)
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # Method to re-translate the second window with the adjustments.
         def retranslateUi(self, MainWindow):
                 _translate = QtCore.QCoreApplication.translate
                 MainWindow.setWindowTitle(_translate("MainWindow", "Change Course"))
@@ -1196,7 +1190,8 @@ class Ui_SecondWindow(object):
                 self.numberOfCreditsLbl.setText(_translate("MainWindow", "# of Credits"))
                 self.label.setText(_translate("MainWindow", "Update Course Information"))
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateColorBlue(self):
                 line = self.changeCourse()
 
@@ -1231,7 +1226,6 @@ class Ui_SecondWindow(object):
                         x = line.split()
                         x = ''.join(x)
                         y = x.split(',')
-                        # print(y)
                         credits = int(y[2])
 
                         if buttonArray[buttonIndex].styleSheet() == ("border-radius: 10px;\n"
@@ -1240,7 +1234,6 @@ class Ui_SecondWindow(object):
                                 buttonIndex].styleSheet() == ("border-radius: 10px;\n"
                                                               "background-color: rgb(211, 211, 211);\n"
                                                               "border: 3px solid blue;"):
-                                #credits = int(words[2])
                                 numberOfCredits -= credits
                                 labelText = str(numberOfCredits) + " of " + str(
                                         totalNumberOfCredits) + " credit(s) completed"
@@ -1270,7 +1263,8 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateColorPink(self):
                 line = self.changeCourse()
 
@@ -1344,7 +1338,8 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateColorYellow(self):
                 line = self.changeCourse()
 
@@ -1418,7 +1413,8 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateColorViolet(self):
                 line = self.changeCourse()
 
@@ -1491,7 +1487,8 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateColorTaken(self):
 
                 credits = 0
@@ -1558,11 +1555,9 @@ class Ui_SecondWindow(object):
                                 pass
                         elif credits == buttonCredits:
                                 numberOfCredits += credits
-                                # numberOfCredits = 0
                                 credits += 0
-                                print("credits and button credits equal or no change is made")
+                                #print("credits and button credits equal or no change is made")
                         elif credits > buttonCredits:
-                                # global totalNumberOfCredits
                                 diff = credits - buttonCredits
                                 numberOfCredits += diff
                                 totalNumberOfCredits += diff
@@ -1595,7 +1590,8 @@ class Ui_SecondWindow(object):
 
                 return new_line
 
-        #Add comments
+        # The algorithm takes a line from the user and based on the input,
+        # updates the contents of the front-end button, and back-end variable.
         def UpdateCNotC(self):
                 f = open(fileName, 'r')
                 lines = f.readlines()
@@ -1820,7 +1816,8 @@ class Ui_SecondWindow(object):
                         w.write(x)
                 w.close()
 
-        #Add comments
+        # The algorithm takes the course information from the user and updates the course information in the txt file;
+        # It also, updates the number of credits and the total number of credits in the main window.
         def changeCourse(self):
                 self.errorLbl.clear()
                 courseCode = self.lineEdit.text()
@@ -1828,8 +1825,7 @@ class Ui_SecondWindow(object):
                 numOfCredits = self.lineEdit_3.text()
 
                 courseCodeRegex = re.search("^\s*[A-Za-z␣\t\n\r\s]{2,13}\s*$", courseCode)
-                courseIDRegex = re.search("^\s*[0-9]{3,4}\s*$", courseID)
-                #courseIDRegex = re.search("^\s*[0-9]{3,4}(?:\'w'\'W')?\s*$", courseID) #(?:\'w'\'W')?
+                courseIDRegex = re.search("^\s*[0-9]{2,4}\s*$", courseID)
                 numberOfCreditsRegex = re.search("^\s*[0-9]{1}\s*$", numOfCredits)
 
                 if not courseCodeRegex or not courseIDRegex or not numberOfCreditsRegex:
@@ -1871,12 +1867,9 @@ class Ui_SecondWindow(object):
                                                                       "border: 3px solid blue;"):
 
                                         if credits == buttonCredits:
-                                                # numberOfCredits += credits
-                                                # numberOfCredits = 0
                                                 credits += 0
                                                 print("credits and button credits equal or no change is made")
                                         elif credits > buttonCredits:
-                                                # global totalNumberOfCredits
                                                 diff = credits - buttonCredits
                                                 numberOfCredits += diff
                                                 totalNumberOfCredits += diff
@@ -1889,19 +1882,14 @@ class Ui_SecondWindow(object):
                                                 print("Error in UpdateColorTaken() method!")
                                 else:
                                         if credits == buttonCredits:
-                                                #numberOfCredits += credits
-                                                # numberOfCredits = 0
                                                 credits += 0
                                                 print("credits and button credits equal or no change is made")
                                         elif credits > buttonCredits:
-                                                #global totalNumberOfCredits
                                                 diff = credits - buttonCredits
-                                                #numberOfCredits += diff
                                                 totalNumberOfCredits += diff
 
                                         elif credits < buttonCredits:
                                                 diff = buttonCredits - credits
-                                                #numberOfCredits -= diff
                                                 totalNumberOfCredits -= diff
                                         else:
                                                 print("Error in changeCourse() method!")
@@ -2004,6 +1992,5 @@ if __name__ == "__main__":
         MainWindow = QtWidgets.QMainWindow()
         ui = Ui_MainWindow()
         ui.setupUi(MainWindow)
-        ## Implement method
         MainWindow.show()
         sys.exit(app.exec_())
